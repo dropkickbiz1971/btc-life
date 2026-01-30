@@ -55,13 +55,23 @@ footer { text-align:center; padding:16px; font-size:12px; }
 
 .site-header .banner-text {
   position: absolute;
-  bottom: 10px;
-  left: 16px;
+  /* 上下左右中央に配置するための指定 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 自身の幅の半分だけ戻す */
+  
+  width: 100%; /* 幅をいっぱいにとって中央揃えを有効にする */
+  text-align: center;
+  
+  /* 装飾 */
+  margin: 0;
+  padding: 0 16px;
+  box-sizing: border-box;
   color: #fff;
   font-size: 20px;
   font-weight: bold;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-  line-height: 1.2;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.85);
+  pointer-events: none; /* 下のリンクなどの邪魔をしないように */
 }
 
 /* ===== バナー文字 中央寄せ 最終修正 ===== */
