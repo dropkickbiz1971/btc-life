@@ -1,27 +1,20 @@
-/* 1. ページ全体のリセット */
-body { 
-  font-family: "Meiryo", -apple-system, sans-serif; 
-  margin: 0; 
-  padding: 0;
-  background: #fff; 
-  color: #111; 
-}
+/* --- 全体リセット --- */
+body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
 
-/* 2. ヘッダーバナー（ここを完全に整理しました） */
+/* --- 【重要】バナーを真ん中にする設定（これ以外は書かない） --- */
 .site-header {
   position: relative;
   width: 100%;
-  height: 160px; /* バナーの高さ */
+  height: 160px;
+  overflow: hidden;
   margin: 0;
   padding: 0 !important;
-  overflow: hidden;
-  background-color: #000; /* 画像読み込み前の背景色 */
 }
 
 .site-header .header-banner {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 画像を枠いっぱいに広げる */
+  object-fit: cover;
   display: block;
 }
 
@@ -29,50 +22,28 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 12px; /* 下から12pxの位置 */
-  
-  text-align: center; /* これで文字を真ん中に */
+  bottom: 15px;
+  text-align: center; /* これが文字を真ん中にします */
   width: 100%;
-  margin: 0;
-  padding: 0 10px;
-  box-sizing: border-box;
-  
   color: #fff;
   font-size: 22px;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 文字を読みやすく */
-  z-index: 10;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
   pointer-events: none;
 }
 
-/* 3. メインコンテンツ */
+/* --- メインコンテンツ --- */
 main { padding: 16px; }
-
-.rank, .exchange { 
-  margin-bottom: 24px; 
-  padding: 16px; 
-  border: 1px solid #ddd; 
-  border-radius: 8px; 
-}
-
-/* bitFlyerの背景色 */
+.rank, .exchange { margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
 .exchange { background: #f7f7f7; }
 
-/* 4. ボタン */
+/* --- ボタン --- */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
-.btn { 
-  padding: 12px 18px; 
-  border-radius: 8px; 
-  font-size: 14px; 
-  font-weight: bold; 
-  text-decoration: none; 
-  border: none; 
-  cursor: pointer; 
-}
+.btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
-/* 5. 運営おすすめ・星マーク（しっかり表示されます） */
+/* --- 装飾（運営おすすめ・星） --- */
 .stars { margin: 4px 0; display: flex; align-items: center; }
 .star { color: gold; font-size: 18px; margin-right: 2px; }
 .star.gray { color: #ccc; }
