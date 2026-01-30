@@ -64,5 +64,14 @@ footer { text-align:center; padding:16px; font-size:12px; }
   line-height: 1.2;
 }
 
+/* ===== バナー文字 中央寄せ 最終修正 ===== */
+
+.site-header .banner-text {
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  padding: 0 16px;
+}
 
 
