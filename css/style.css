@@ -1,45 +1,51 @@
-/* 1. 全体のリセットと基本 */
+/* 1. ページ全体のリセット */
 body { 
-  font-family: "Meiryo", sans-serif; 
+  font-family: "Meiryo", -apple-system, sans-serif; 
   margin: 0; 
+  padding: 0;
   background: #fff; 
   color: #111; 
-  line-height: 1.6;
 }
 
-/* 2. ヘッダー（ズレの元を全削除） */
+/* 2. ヘッダーバナー（ここを完全に整理しました） */
 .site-header {
   position: relative;
   width: 100%;
-  height: 160px;
+  height: 160px; /* バナーの高さ */
+  margin: 0;
+  padding: 0 !important;
   overflow: hidden;
+  background-color: #000; /* 画像読み込み前の背景色 */
 }
 
 .site-header .header-banner {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* 画像を枠いっぱいに広げる */
   display: block;
 }
 
 .site-header .banner-text {
   position: absolute;
-  /* 左右を0にして中央揃えを確定させる */
   left: 0;
   right: 0;
-  bottom: 12px;
-  text-align: center;
+  bottom: 12px; /* 下から12pxの位置 */
   
-  padding: 0 16px;
+  text-align: center; /* これで文字を真ん中に */
+  width: 100%;
+  margin: 0;
+  padding: 0 10px;
   box-sizing: border-box;
+  
   color: #fff;
   font-size: 22px;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-  pointer-events: none; /* 文字がボタンの邪魔をしないように */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* 文字を読みやすく */
+  z-index: 10;
+  pointer-events: none;
 }
 
-/* 3. コンテンツ枠（ランキング・取引所） */
+/* 3. メインコンテンツ */
 main { padding: 16px; }
 
 .rank, .exchange { 
@@ -49,16 +55,11 @@ main { padding: 16px; }
   border-radius: 8px; 
 }
 
+/* bitFlyerの背景色 */
 .exchange { background: #f7f7f7; }
 
 /* 4. ボタン */
-.links { 
-  margin-top: 12px; 
-  display: flex; 
-  gap: 10px; 
-  flex-wrap: wrap; 
-}
-
+.links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { 
   padding: 12px 18px; 
   border-radius: 8px; 
@@ -66,16 +67,13 @@ main { padding: 16px; }
   font-weight: bold; 
   text-decoration: none; 
   border: none; 
-  cursor: pointer;
-  transition: opacity 0.2s;
+  cursor: pointer; 
 }
-
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
-.btn:hover { opacity: 0.8; }
 
-/* 5. 装飾パーツ */
-.stars { margin: 4px 0; }
+/* 5. 運営おすすめ・星マーク（しっかり表示されます） */
+.stars { margin: 4px 0; display: flex; align-items: center; }
 .star { color: gold; font-size: 18px; margin-right: 2px; }
 .star.gray { color: #ccc; }
 .recommend { font-weight: bold; color: #ff4500; margin-right: 8px; font-size: 16px; }
