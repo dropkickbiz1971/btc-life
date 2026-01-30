@@ -73,5 +73,34 @@ footer { text-align:center; padding:16px; font-size:12px; }
   width: 100%;
   padding: 0 16px;
 }
+/* ===== ヘッダーバナー 完全確定版（ズレ根絶） ===== */
+
+.site-header {
+  position: relative;
+  padding: 0 !important;      /* ← header の padding を完全無効化 */
+  margin: 0;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  text-align: initial;        /* ← center 指定を解除 */
+}
+
+.site-header .header-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.site-header .banner-text {
+  position: absolute;
+  inset: auto 0 12px 0;       /* ← 左右を強制的に同一基準に */
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  line-height: 1.2;
+}
 
 
