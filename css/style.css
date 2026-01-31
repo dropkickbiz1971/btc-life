@@ -50,3 +50,22 @@ main { padding: 16px; }
 .recommend { font-weight: bold; color: #ff4500; margin-right: 8px; font-size: 16px; }
 
 footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
+
+/* アイコンの共通設定 */
+.app-icon {
+  width: 40px;          /* アイコンのサイズ */
+  height: 40px;
+  border-radius: 8px;   /* 角を少し丸くする（アプリアイコン風） */
+  vertical-align: middle; /* 文字の高さに合わせる */
+  margin-right: 10px;   /* 文字との間の余白 */
+  object-fit: contain;
+  background: #eee;     /* 画像がない時の仮背景 */
+}
+
+/* タイトルの文字とアイコンを垂直中央に揃える */
+.rank h2, .exchange h2 {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
