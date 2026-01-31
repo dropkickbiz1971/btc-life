@@ -69,3 +69,54 @@ footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
   font-size: 1.2rem;
   line-height: 1.2;
 }
+/* 比較表のスタイル */
+.comparison {
+  margin-bottom: 32px;
+  padding: 16px;
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 12px;
+}
+
+.comparison h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+  border-left: 4px solid #f7931a; /* ビットコインカラーのオレンジ */
+  padding-left: 10px;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* スマホで横スクロール可能にする */
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px; /* スマホで潰れすぎないように最低幅を指定 */
+  font-size: 14px;
+}
+
+th, td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+th {
+  background-color: #fcfcfc;
+  color: #666;
+  font-weight: bold;
+}
+
+td:first-child {
+  font-weight: bold;
+  color: #111;
+}
+
+/* おすすめ度の星を黄色に */
+td:nth-child(3) {
+  color: #ffb400;
+  white-space: nowrap;
+}
