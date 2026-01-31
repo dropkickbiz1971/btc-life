@@ -76,7 +76,7 @@
   <p>歩く・広告視聴・価格予想でBTCが貯まるアプリ。招待コード入力で特典あり。</p>
   <div class="links">
     <a href="https://bitstart.jp" target="_blank" class="btn official">公式サイトを見る</a>
-    <button class="btn invite" onclick="copyCode('hvSrbM')">招待コードをコピー</button>
+    <button class="btn invite" onclick="copyCode(this, 'hvSrbM')">招待コードをコピー</button>
   </div>
 </section>
 
@@ -105,7 +105,7 @@
   <p>歩く・記事を読んでBTCを獲得できるサービス。招待コード入力でスタート特典あり。</p>
   <div class="links">
     <a href="https://cheeese.monex.co.jp" target="_blank" class="btn official">公式サイトを見る</a>
-    <button class="btn invite" onclick="copyCode('a43fd27622c17858')">招待コードをコピー</button>
+    <button class="btn invite" onclick="copyCode(this, 'a43fd27622c17858')">招待コードをコピー</button>
   </div>
 </section>
 
@@ -140,7 +140,7 @@
   <a href="https://bitflyer.com/invitation?id=estvcavj&lang=ja-JP" target="_blank" class="btn official">
     bitFlyer公式サイトを見る
   </a>
-  <button class="btn invite" onclick="copyCode('estvcavj')">
+  <button class="btn invite" onclick="copyCode(this, 'estvcavj')">
     招待コードをコピー
   </button>
 </div>
@@ -155,9 +155,24 @@
 </footer>
 
 <script>
-function copyCode(code) {
+function copyCode(button, code) {
+  // クリップボードにコピー
   navigator.clipboard.writeText(code).then(() => {
-    alert('招待コードをコピーしました：' + code);
+    // 元の文字を保存
+    const originalText = button.innerText;
+    
+    // 文字を変えて、色を少し変える演出
+    button.innerText = 'コピー完了！';
+    button.style.backgroundColor = '#28a745'; // 一時的に緑色にする（お好みで）
+
+    // 2秒後に元の状態に戻す
+    setTimeout(() => {
+      button.innerText = originalText;
+      button.style.backgroundColor = ''; // 元のCSSの色に戻る
+    }, 2000);
+    
+  }).catch(err => {
+    alert('コピーに失敗しました。');
   });
 }
 </script>
