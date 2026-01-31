@@ -8,53 +8,33 @@
   <link rel="icon" href="img/icon-bitstart.png">
 
   <style>
-    /* --- 1. 全リセット：ブラウザの勝手な余白を完全に殺す --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: "Meiryo", sans-serif; background: #fff; color: #111; line-height: 1.5; }
+  /* 1. 元のデザインを壊さないための上書き設定 */
+  .stars {
+    color: gold !important;
+    margin-bottom: -10px !important; /* 星と下の文を物理的に密着させる */
+    line-height: 1.0 !important;
+    display: block !important;
+  }
 
-    /* --- 2. 価格バーとバナー：隙間なし --- */
-    #price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
-    #btc-price { color: #fff; }
-    .site-header { width: 100%; height: 160px; position: relative; overflow: hidden; }
-    .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .banner-text { position: absolute; width: 100%; text-align: center; bottom: 15px; color: #fff; font-size: 22px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+  .rank p, .exchange p {
+    margin-top: 0 !important;
+    padding-top: 2px !important; /* ほんの少しだけ隙間を開けて読みやすく */
+  }
 
-    /* --- 3. メイン：バナーとの隙間を徹底排除 --- */
-    main { padding: 0 16px 16px 16px; }
-    .comparison { margin-top: 0 !important; padding: 15px 0; border-bottom: 1px solid #eee; }
+  /* 2. 特徴まとめ（比較表）の上の余白を消してバナーに密着させる */
+  main {
+    padding-top: 0 !important;
+  }
+  .comparison {
+    margin-top: 0 !important;
+  }
 
-    /* --- 4. ランキング：★と説明文を完全に密着させる --- */
-    .rank, .exchange { margin-top: 25px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
-    .rank-title { display: flex; align-items: center; margin-bottom: 5px; }
-    .app-icon { width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; }
-
-    /* ★星の設定：下の余白を強制消去 */
-    .stars { 
-      color: gold !important; 
-      font-size: 18px; 
-      line-height: 1.0 !important; 
-      margin-bottom: 0 !important; 
-      display: block;
-    }
-    /* 説明文の設定：上の余白を強制消去 */
-    .rank p, .exchange p { 
-      margin-top: 0 !important; 
-      padding-top: 4px !important; /* 密着しすぎない程度の微調整 */
-      font-size: 14px;
-    }
-
-    /* --- 5. テーブル・ボタン --- */
-    .table-wrapper { width: 100%; overflow-x: auto; margin-top: 10px; }
-    table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
-    th, td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
-    td:nth-child(3) { color: gold !important; font-weight: bold; }
-    .links { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
-    .btn { padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
-    .btn.official { background: #28a745; color: #fff; }
-    .btn.invite { background: #ff7f0f; color: #fff; }
-    .recommend { color: #ff4500; font-weight: bold; margin-right: 5px; }
-    footer { text-align: center; padding: 30px 0; font-size: 12px; color: #666; border-top: 1px solid #eee; margin-top: 30px; }
-  </style>
+  /* 3. テーブル内の星の色を金色で固定 */
+  td:nth-child(3) {
+    color: gold !important;
+    font-weight: bold;
+  }
+</style>
 </head>
 <body>
 
