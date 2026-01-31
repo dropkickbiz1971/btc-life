@@ -1,131 +1,282 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>0円ではじめるBTC生活</title>
+
   
-  <link rel="icon" href="img/icon-bitstart.png">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
 
   <style>
-  /* 1. 元のデザインを壊さないための上書き設定 */
-  .stars {
-    color: gold !important;
-    margin-bottom: -10px !important; /* 星と下の文を物理的に密着させる */
-    line-height: 1.0 !important;
-    display: block !important;
-  }
 
-  .rank p, .exchange p {
-    margin-top: 0 !important;
-    padding-top: 2px !important; /* ほんの少しだけ隙間を開けて読みやすく */
-  }
+    /* 2. ここで外部CSSの上書きを「確定」させる */
 
-  /* 2. 特徴まとめ（比較表）の上の余白を消してバナーに密着させる */
-  main {
-    padding-top: 0 !important;
-  }
-  .comparison {
-    margin-top: 0 !important;
-  }
+    
 
-  /* 3. テーブル内の星の色を金色で固定 */
-  td:nth-child(3) {
-    color: gold !important;
-    font-weight: bold;
-  }
-</style>
+    /* 星と説明文の隙間を消す */
+
+    .stars {
+
+      margin-bottom: 0 !important; 
+
+      line-height: 1.0 !important;
+
+      display: block !important;
+
+    }
+
+    .rank p, .exchange p {
+
+      margin-top: 0 !important;
+
+      padding-top: 2px !important;
+
+    }
+
+
+
+    /* バナー下の隙間を消す */
+
+    main { padding-top: 0 !important; }
+
+    .comparison { margin-top: 0 !important; }
+
+
+
+    /* 星の色を金色で固定 */
+
+    .stars, td:nth-child(3) { color: gold !important; }
+
+  </style>
+
+
+
+  <meta name="description" content="スマホで歩くだけ、記事を読むだけでビットコインが無料で貯まる！">
+
 </head>
+
 <body>
 
+
+
 <div id="price-bar">
-  BTC 現在価格: <span id="btc-price">読み込み中...</span>
+
+  <span class="price-label">BTC 現在価格:</span>
+
+  <span id="btc-price">読み込み中...</span>
+
 </div>
 
+
+
 <header class="site-header">
+
   <img src="img/banner.png?v=2" class="header-banner" alt="バナー">
+
   <div class="banner-text">0円ではじめるBTC生活</div>
+
 </header>
 
+
+
 <main>
+
   <section class="comparison">
+
     <h3>💎 アプリ別 特徴まとめ</h3>
+
     <div class="table-wrapper">
+
       <table>
+
         <thead>
-          <tr><th>アプリ名</th><th>稼ぎ方</th><th>おすすめ度</th><th>特徴</th></tr>
+
+          <tr>
+
+            <th>アプリ名</th>
+
+            <th>稼ぎ方</th>
+
+            <th>おすすめ度</th>
+
+            <th>特徴</th>
+
+          </tr>
+
         </thead>
+
         <tbody>
-          <tr><td>BitStart</td><td>歩く・予想</td><td>★★★★★</td><td>還元率が高い</td></tr>
+
+          <tr><td>BitStart</td><td>歩く・予想・広告</td><td>★★★★★</td><td>還元率が高い</td></tr>
+
           <tr><td>BitWalk</td><td>歩く・予想</td><td>★★★★☆</td><td>シンプルで簡単</td></tr>
-          <tr><td>Cheeese</td><td>ニュース</td><td>★★★★☆</td><td> Monex運営</td></tr>
+
+          <tr><td>Cheeese</td><td>歩く・ニュース</td><td>★★★★☆</td><td>ニュースで貯まる</td></tr>
+
           <tr><td>XRPWalk</td><td>歩く・予想</td><td>★★★☆☆</td><td>リップルが貯まる</td></tr>
+
         </tbody>
+
       </table>
+
     </div>
+
+    <p class="note">※基本すべて無料で始められます。</p>
+
   </section>
 
+
+
   <section class="rank">
+
     <div class="rank-title">
+
       <img src="img/icon-bitstart.png" class="app-icon" alt="BitStart">
-      <h2>🥇 1位：Bit Start</h2>
+
+      <h2>🥇 1位：Bit Start（BTC）</h2>
+
     </div>
+
     <div class="stars">★★★★★</div>
+
     <p>歩く・広告視聴・価格予想でBTCが貯まるアプリ。招待コード入力で特典あり。</p>
+
     <div class="links">
-      <a href="https://bitstart.jp" class="btn official" target="_blank">公式サイト</a>
+
+      <a href="https://bitstart.jp" class="btn official" target="_blank">公式サイトを見る</a>
+
       <button class="btn invite" onclick="copyCode(this, 'hvSrbM')">招待コードをコピー</button>
+
     </div>
+
   </section>
 
+
+
   <section class="rank">
+
     <div class="rank-title">
+
       <img src="img/icon-bitwalk.png" class="app-icon" alt="BitWalk">
-      <h2>🥈 2位：BitWalk</h2>
+
+      <h2>🥈 2位：BitWalk（BTC）</h2>
+
     </div>
+
     <div class="stars">★★★★☆</div>
+
     <p>歩くだけでBTCが貯まる定番アプリ。価格予想ガチャ有り。</p>
+
     <div class="links">
-      <a href="https://bitwalk.go.link/?adj_t=1kewl8oe&referrer_id=a58ba086-d65e-4885-8421-cf10049ce767#BitWalk" class="btn official" target="_blank">公式サイト</a>
+
+      <a href="https://bitwalk.go.link/?adj_t=1kewl8oe&referrer_id=a58ba086-d65e-4885-8421-cf10049ce767#BitWalk" class="btn official" target="_blank">公式サイトを見る</a>
+
     </div>
+
   </section>
+
+
+
+  <section class="rank">
+
+    <div class="rank-title">
+
+      <img src="img/icon-cheeese.png" class="app-icon" alt="Cheeese">
+
+      <h2>🥉 3位：Cheeese（BTC）</h2>
+
+    </div>
+
+    <div class="stars">★★★★☆</div>
+
+    <p>歩く・記事を読んでBTCを獲得できるサービス。招待コード入力でスタート特典あり。</p>
+
+    <div class="links">
+
+      <a href="https://cheeese.monex.co.jp" class="btn official" target="_blank">公式サイトを見る</a>
+
+      <button class="btn invite" onclick="copyCode(this, 'n48p7v3t')">招待コードをコピー</button>
+
+    </div>
+
+  </section>
+
+
+
+  <section class="rank">
+
+    <div class="rank-title">
+
+      <img src="img/icon-xrpwalk.png" class="app-icon" alt="XRPWalk">
+
+      <h2>🏅 4位：XRPWalk（XRP）</h2>
+
+    </div>
+
+    <div class="stars">★★★☆☆</div>
+
+    <p>歩数に応じてXRPが貯まるアプリ。価格予想・ガチャ有り。</p>
+
+    <div class="links">
+
+      <a href="https://xrpwalk.go.link/?adj_t=1lrv1tvw&referrer_id=3cc338ac-fa6a-4e9d-aa5a-3dd2fe0670f1" class="btn official" target="_blank">公式サイトを見る</a>
+
+    </div>
+
+  </section>
+
+
 
   <section class="exchange">
+
     <div class="rank-title">
+
       <img src="img/icon-bitflyer.png" class="app-icon" alt="bitFlyer">
-      <h2>🔐 bitFlyer</h2>
+
+      <h2>🔐 貯めたBTCを売買・管理するなら bitFlyer</h2>
+
     </div>
-    <div class="stars"><span class="recommend">運営おすすめ</span>★★★★★</div>
-    <p>最短5分で無料開設可能。ビットコイン取引量9年連続No.1！</p>
+
+    <div class="stars">
+
+      <span class="recommend">運営おすすめ</span>
+
+      <span>★★★★★</span>
+
+    </div>
+
+    <p>暗号資産の取引には取引所口座が必要です。bitFlyerはビットコイン取引量9年連続No.1！最短5分で無料開設可能です。</p>
+
     <div class="links">
-      <a href="https://bitflyer.com/invitation?id=estvcavj&lang=ja-JP" class="btn official" target="_blank">公式サイト</a>
+
+      <a href="https://bitflyer.com/invitation?id=estvcavj&lang=ja-JP" class="btn official" target="_blank">bitFlyer公式サイトを見る</a>
+
       <button class="btn invite" onclick="copyCode(this, 'estvcavj')">招待コードをコピー</button>
+
     </div>
+
   </section>
+
 </main>
 
+
+
 <footer>
+
+  <a href="about.html">このサイトについて</a> |
+
+  <a href="privacy.html">プライバシーポリシー</a>
+
   <p>© 0円ではじめるBTC生活</p>
+
 </footer>
 
-<script>
-async function fetchBTCPrice() {
-  try {
-    const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=jpy');
-    const data = await res.json();
-    document.getElementById('btc-price').innerText = `¥${data.bitcoin.jpy.toLocaleString()}`;
-  } catch (e) { document.getElementById('btc-price').innerText = '取得エラー'; }
-}
-fetchBTCPrice();
-setInterval(fetchBTCPrice, 60000);
-
-function copyCode(btn, code) {
-  navigator.clipboard.writeText(code).then(() => {
-    const txt = btn.innerText;
-    btn.innerText = '完了！';
-    setTimeout(() => btn.innerText = txt, 2000);
-  });
-}
-</script>
-</body>
-</html>
