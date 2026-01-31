@@ -1,4 +1,4 @@
-/* --- ベース --- */
+/* --- ベース設定 --- */
 body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
 
 .site-header {
@@ -11,33 +11,37 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none;
 }
 
-/* --- 余白の徹底排除 --- */
-main { padding: 0 16px; } /* 上下の余白を0に。これで「特徴まとめ」の上が詰まります */
+/* --- 【修正】余白：mainのpadding-topを0にして隙間を消す --- */
+main { padding: 0 16px 16px 16px; }
 
-.comparison {
-  margin-top: 0 !important; /* 強制的に上の余白を消去 */
-  margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
-}
-
-.rank, .exchange {
-  margin-top: 10px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
-}
-
-/* --- 星の色を完全修正 --- */
+/* --- 【修正】星の色：文字は黒、★は金、☆はグレー --- */
 .stars {
   margin: 4px 0 0px 0; 
   display: flex; align-items: center; font-size: 18px;
-  color: #111; /* 「運営おすすめ」という文字だけを黒に */
+  color: #111 !important; /* 「運営おすすめ」の文字色 */
 }
-/* ★マークだけを金、☆マークをグレーに強制指定 */
-.star, .stars span:not(.gray) { color: gold !important; margin-right: 2px; }
-.star.gray, .stars span.gray { color: #ccc !important; }
+/* spanタグやstarクラスがついた記号だけを金にする */
+.stars span, .star { color: gold !important; margin-right: 2px; }
+/* grayクラスがついたものだけをグレーで上書きする */
+.stars .gray, .star.gray { color: #ccc !important; }
+
+/* ランキング枠 */
+.rank, .exchange {
+  margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
+}
+.exchange { background: #f7f7f7; }
 
 /* 説明文 */
 .rank p, .exchange p { margin-top: 4px !important; margin-bottom: 15px; line-height: 1.6; }
-.note { margin-top: 4px; color: #888; font-size: 12px; }
 
-/* ボタン・装飾 */
+/* --- 【修正】特徴まとめの上の隙間を0に --- */
+.comparison {
+  margin-top: 0 !important;
+  margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
+}
+.note { margin-top: 8px; color: #888; font-size: 12px; }
+
+/* ボタン・その他 */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
 .btn.official { background: #28a745; color: #fff; }
@@ -48,7 +52,6 @@ main { padding: 0 16px; } /* 上下の余白を0に。これで「特徴まと�
 .rank-title { display: flex; align-items: center; margin-bottom: 10px; }
 .rank-title h2 { margin: 0; font-size: 18px; }
 
-/* テーブル */
 .table-wrapper { width: 100%; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
