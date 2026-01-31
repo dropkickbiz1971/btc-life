@@ -1,71 +1,56 @@
-/* --- ベース設定：スクロールを確実に有効化 --- */
-html, body { 
-  margin: 0; padding: 0; background: #fff; color: #111;
-  overflow-y: auto !important; 
+/* 1. スクロールと横揺れを完全に解決 */
+html, body {
+  margin: 0; padding: 0;
+  overflow-x: hidden; /* 横揺れ防止 */
+  overflow-y: auto;   /* 縦スクロール確保 */
+  width: 100%;
 }
-body { font-family: "Meiryo", sans-serif; line-height: 1.6; }
+body { font-family: "Meiryo", sans-serif; background: #fff; color: #111; }
 
-/* ヘッダー */
-.site-header {
-  position: relative; width: 100%; height: 160px; overflow: hidden;
-}
-.site-header .header-banner { 
-  width: 100%; height: 100%; object-fit: cover; display: block; 
-}
+/* 2. バナーと余白：隙間を物理的に排除 */
+.site-header { width: 100%; height: 160px; margin: 0; }
+.site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+main { display: block; padding: 0 16px; margin: 0; }
+.comparison { margin-top: 0 !important; padding: 12px; border: 1px solid #eee; border-radius: 8px; }
 
-/* --- 【修正】余白：バナー下の隙間を完全にゼロにする --- */
-main { padding: 0 16px 16px 16px; } 
-
-.comparison {
-  margin-top: 0 !important; 
-  margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
-}
-
-/* --- 【修正】色：文字（運営おすすめ）のみ赤、★は金、☆はグレー --- */
+/* 3. 【最重要】星と文字の色を完全に切り分け */
 .stars {
-  margin: 4px 0 0px 0; 
-  display: flex; align-items: center; font-size: 18px;
-  color: #111; /* 星の横に他の文字があっても基本は黒 */
+  margin: 4px 0; display: flex; align-items: center; font-size: 18px;
+  color: #111; /* 星以外の基本色は黒 */
 }
 
-/* 「運営おすすめ」という文字クラスだけを赤にする */
-.recommend { 
+/* 「運営おすすめ」という文字部分（またはそのクラス）だけを赤にする */
+.recommend, 
+.stars .recommend { 
   color: #ff4500 !important; 
-  font-weight: bold;
+  font-weight: bold; 
+  margin-right: 5px;
 }
 
-/* 星記号（★）だけを金にする。親の色に影響されないようタグで指定 */
-.stars span, .star { 
+/* ★（金色の星）：親が赤でも黒でも、強制的に「金」に塗りつぶす */
+.stars span, 
+.stars i, 
+.star { 
   color: #ffb400 !important; /* 金色 */
+  display: inline-block;
   margin-right: 2px;
 }
 
-/* グレーの星（☆）だけをグレーにする */
-.stars .gray, .stars span.gray, .star.gray { 
+/* ☆（グレーの星）：金色の指定をさらに上書きして「グレー」にする */
+.stars .gray, 
+.stars span.gray, 
+.star.gray { 
   color: #ccc !important; 
 }
 
-/* --- ランキング・枠（元のデザインを維持） --- */
-.rank, .exchange {
-  margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
-}
-.exchange { background: #f7f7f7; }
-.rank p, .exchange p { margin-top: 8px; margin-bottom: 15px; }
-
-.links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
-.btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; }
+/* 4. その他：レイアウトを崩さない標準設定 */
+.rank, .exchange { margin-top: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
+.rank-title { display: flex; align-items: center; margin-bottom: 10px; }
+.app-icon { width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; }
+.btn { padding: 12px 18px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block; }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
-.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; }
-.rank-title { display: flex; align-items: center; margin-bottom: 10px; }
-.rank-title h2 { margin: 0; font-size: 18px; }
-
-/* テーブル */
+/* テーブル：スマホでグラグラしないための設定 */
 .table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
-th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
-td:nth-child(3) { color: #ffb400; }
-
-#price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
-footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
+table { border-collapse: collapse; font-size: 13px; white-space: nowrap; }
