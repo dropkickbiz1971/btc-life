@@ -172,3 +172,16 @@ td:nth-child(3) {
   margin-right: 10px;
   object-fit: contain;
 }
+/* 「※基本すべて無料...」自体の余白を最小限にする */
+.note {
+  margin-top: 4px;    /* 表との間隔 */
+  margin-bottom: 0;   /* 下のランキングとの間の余白をゼロに */
+  font-size: 11px;
+  color: #888;
+}
+
+/* その直後に来るランキングセクションの上の余白も詰める */
+.comparison + .rank, 
+.comparison + .exchange {
+  margin-top: 0; 
+}
