@@ -19,31 +19,27 @@ main { padding: 16px; }
 }
 .exchange { background: #f7f7f7; }
 
-/* --- 星の色と出し分け（修正） --- */
+/* --- 【ここを修正】星の色を gold に上書き --- */
 .stars {
   margin: 4px 0 0px 0; 
   display: flex; align-items: center; font-size: 18px;
-  color: #111; 
-}
-
-/* ★を確実に gold にする指定 */
-.stars .star, 
-.stars span,
-.star { 
+  /* 親要素の色を gold にし、中身を一旦すべて金色にする */
   color: gold !important; 
-  margin-right: 2px; 
-} 
-
-/* ☆（グレーの星）を上書き */
-.star.gray,
-.stars .gray { 
-  color: #ccc !important; 
 }
+
+/* 「運営おすすめ」という文字部分だけを元の赤（または黒）に戻す */
+.recommend { 
+  font-weight: bold; 
+  color: #ff4500 !important; /* 文字だけを赤に固定 */
+  margin-right: 8px; 
+  font-size: 16px; 
+}
+
+/* グレーの星がある場合の設定 */
+.star.gray, .gray { color: #ccc !important; }
 
 /* 説明文 */
 .rank p, .exchange p { margin-top: 4px !important; margin-bottom: 15px; line-height: 1.6; }
-
-.recommend { font-weight: bold; color: #ff4500; margin-right: 8px; font-size: 16px; }
 
 /* --- 特徴まとめ（比較表）の余白 --- */
 .comparison {
@@ -66,7 +62,7 @@ main { padding: 16px; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
 
-/* ランキング表の中の星も gold に固定 */
+/* ランキング表内の星も gold にする */
 td:nth-child(3) { color: gold !important; letter-spacing: -1px; font-weight: bold; }
 
 #price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
