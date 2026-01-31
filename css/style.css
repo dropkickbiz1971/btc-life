@@ -59,3 +59,7 @@ td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
 
 .rank-title { display: flex; align-items: center; margin-bottom: 10px; }
 .rank-title h2 { margin: 0; font-size: 18px; }
+
+/* 「特徴まとめ」の上の余白を元の16pxに復元 */
+main { padding-top: 16px !important; }
+.comparison { margin-top: 24px !important; }
