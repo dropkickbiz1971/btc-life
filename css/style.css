@@ -2,12 +2,7 @@
 body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
 
 .site-header {
-  position: relative; 
-  width: 100%; 
-  height: 160px; 
-  overflow: hidden; 
-  margin: 0; 
-  padding: 0 !important;
+  position: relative; width: 100%; height: 160px; overflow: hidden; margin: 0; padding: 0 !important;
 }
 .site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 .site-header .banner-text {
@@ -16,24 +11,23 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none;
 }
 
-/* --- メインの余白：上部を0にしてバナーに密着させる --- */
-main { padding: 0 16px 16px 16px !important; }
+/* メインの余白 */
+main { padding: 16px; }
 
 .rank, .exchange {
   margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
 }
 .exchange { background: #f7f7f7; }
 
-/* --- 星の色と出し分け（確定版） --- */
+/* --- 【修正】星の色を gold に強制 --- */
 .stars {
   margin: 4px 0 0px 0; 
-  display: flex; 
-  align-items: center; 
-  font-size: 18px;
-  color: gold !important; /* ★を金色にする */
+  display: flex; align-items: center; font-size: 18px;
+  /* 親要素の色を gold にして、直書きされた「★」を金色に染める */
+  color: gold !important; 
 }
 
-/* 「運営おすすめ」だけを赤に戻す */
+/* 「運営おすすめ」というクラスがついた文字だけを「赤」に戻す */
 .recommend { 
   color: #ff4500 !important; 
   font-weight: bold; 
@@ -41,7 +35,7 @@ main { padding: 0 16px 16px 16px !important; }
   font-size: 16px; 
 }
 
-/* グレーの星（☆）がある場合の設定 */
+/* グレーの星を出すための指定（一応残します） */
 .star.gray, .gray { color: #ccc !important; }
 
 /* 説明文 */
@@ -49,27 +43,14 @@ main { padding: 0 16px 16px 16px !important; }
 
 /* --- 特徴まとめ（比較表）の余白 --- */
 .comparison {
-  margin-top: 0 !important; 
-  margin-bottom: 24px; 
-  padding: 12px; 
-  background: #fff; 
-  border: 1px solid #eee; 
-  border-radius: 8px;
+  margin-top: 0; 
+  margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
 }
 .note { margin-top: 8px; color: #888; font-size: 12px; }
 
 /* その他装飾 */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
-.btn { 
-  padding: 12px 18px; 
-  border-radius: 8px; 
-  font-size: 14px; 
-  font-weight: bold; 
-  text-decoration: none; 
-  border: none; 
-  cursor: pointer; 
-  display: inline-block; 
-}
+.btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
@@ -81,7 +62,7 @@ main { padding: 0 16px 16px 16px !important; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
 
-/* ランキング表内の3列目（★）も gold に固定 */
+/* ランキング表内の3列目も gold に強制 */
 td:nth-child(3) { color: gold !important; letter-spacing: -1px; font-weight: bold; }
 
 #price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
