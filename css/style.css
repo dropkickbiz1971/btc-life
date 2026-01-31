@@ -185,3 +185,12 @@ td:nth-child(3) {
 .comparison + .exchange {
   margin-top: 0; 
 }
+/* 「※基本すべて無料」の下にある隙間を強制的に消す */
+.note, .comparison p, .comparison + div {
+  margin-bottom: 0 !important;
+}
+
+/* その直後にくるセクションの上の隙間も強制的に消す */
+.rank, .exchange {
+  margin-top: 5px !important;
+}
