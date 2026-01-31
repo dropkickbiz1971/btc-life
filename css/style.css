@@ -136,3 +136,20 @@ td:nth-child(3) {
 .loading {
   opacity: 0.5;
 }
+/* タイトルとアイコンを横並びにする設定 */
+.rank-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.rank-title h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.app-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  margin-right: 10px;
+  object-fit: contain;
+}
