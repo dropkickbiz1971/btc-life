@@ -194,3 +194,18 @@ td:nth-child(3) {
 .rank, .exchange {
   margin-top: 5px !important;
 }
+/* 文字サイズは変えず、下の余白だけを消す */
+.note {
+  margin-bottom: 0 !important;
+  /* font-sizeの指定を消しました。これで今のサイズが維持されます */
+}
+
+/* 比較表（枠）自体の下の余白も詰める */
+.comparison {
+  margin-bottom: 5px !important;
+}
+
+/* 次に来るランキング要素を上に引き上げる */
+.rank, .exchange {
+  margin-top: 5px !important;
+}
