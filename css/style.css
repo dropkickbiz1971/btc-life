@@ -11,8 +11,8 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none;
 }
 
-/* メインの余白 */
-main { padding: 16px; }
+/* --- メインの余白（上部だけ0にする） --- */
+main { padding: 0 16px 16px 16px; } /* 上 右 下 左 の順 */
 
 .rank, .exchange {
   margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
@@ -43,8 +43,12 @@ main { padding: 16px; }
 
 /* --- 特徴まとめ（比較表）の余白 --- */
 .comparison {
-  margin-top: 0; 
-  margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
+  margin-top: 0 !important; /* 念のため強制的に0にする */
+  margin-bottom: 24px; 
+  padding: 12px; 
+  background: #fff; 
+  border: 1px solid #eee; 
+  border-radius: 8px;
 }
 .note { margin-top: 8px; color: #888; font-size: 12px; }
 
