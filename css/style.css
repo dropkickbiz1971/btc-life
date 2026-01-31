@@ -1,134 +1,77 @@
-/* --- 全体リセット --- */
+/* --- 全体設定：フォントと背景 --- */
 body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
 
-/* --- バナー設定 --- */
+/* --- バナー設定：中央配置 --- */
 .site-header {
-  position: relative;
-  width: 100%;
-  height: 160px;
-  overflow: hidden;
-  margin: 0;
-  padding: 0 !important;
+  position: relative; width: 100%; height: 160px; overflow: hidden; margin: 0; padding: 0 !important;
 }
 .site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 .site-header .banner-text {
-  position: absolute; left: 0; right: 0; bottom: 15px;
-  text-align: center; width: 100%; color: #fff;
-  font-size: 22px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-  pointer-events: none;
+  position: absolute; left: 0; right: 0; bottom: 15px; text-align: center;
+  width: 100%; color: #fff; font-size: 22px; font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none;
 }
 
-/* --- メインコンテンツ --- */
-main { padding: 16px; }
+/* --- メインコンテンツ：上の隙間をカット --- */
+main { padding: 0 16px 16px 16px; } /* 上(top)のパディングを0に */
 
-/* ★ランキング枠の上の余白を 24px → 5px に削減 */
-.rank, .exchange { margin-top: 5px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
+/* --- 比較表：上下の余白を極限まで詰める --- */
+.comparison {
+  margin: 0 0 5px 0; /* 上下の外余白を最小に */
+  padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
+}
+.comparison h3 { margin-top: 0; margin-bottom: 10px; }
+
+/* --- 【最重要】注釈部分の余白を完全消滅させる --- */
+.note {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2;
+  font-size: 13px; /* 小さくせず、読みやすいサイズを維持 */
+  color: #666;
+}
+
+/* --- ランキング枠：注釈との間を詰める --- */
+.rank, .exchange {
+  margin-top: 5px; /* 注釈のすぐ下に来るように調整 */
+  margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
+}
 .exchange { background: #f7f7f7; }
 
-/* --- ボタン --- */
+/* --- 星と説明文の密着修正 --- */
+.stars {
+  margin: 4px 0 0px 0; /* 下余白を0に */
+  color: gold !important; display: flex; align-items: center; font-size: 18px;
+}
+.star { color: gold !important; margin-right: 2px; }
+.star.gray { color: #ccc; }
+
+/* 説明文の上の余白を強制的に消して星にくっつける */
+.rank p, .exchange p { margin-top: 0 !important; margin-bottom: 12px; line-height: 1.6; }
+
+/* --- 以降、機能維持のための共通設定 --- */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
-/* --- 星と説明文の密着修正 --- */
-.stars {
-  margin: 4px 0 0px 0; /* 下を 0 に固定 */
-  color: gold !important; 
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-}
-.star { color: gold !important; margin-right: 2px; }
-.star.gray { color: #ccc; }
-
-/* ★説明文の上の余白を強制的に 0 にして星に密着 */
-.rank p, .exchange p { margin-top: 0 !important; margin-bottom: 15px; }
-
 .recommend { font-weight: bold; color: #ff4500; margin-right: 8px; font-size: 16px; }
 
-footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
-
-.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; background: #eee; }
-
-.rank h2, .exchange h2 { display: flex; align-items: center; font-size: 1.2rem; line-height: 1.2; }
-
-/* --- 比較表と注釈の余白修正 --- */
-.comparison {
-  margin-bottom: 0px; /* 下を 0 に固定 */
-  padding: 12px;
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  display: block; 
+.app-icon {
+  width: 32px; height: 32px; border-radius: 6px; margin-right: 10px;
+  object-fit: contain; vertical-align: middle;
 }
-
-/* ★注釈の下の余白を強制的に 0 にして次のランキングに繋げる */
-.note { margin-top: 4px; margin-bottom: 0px !important; color: #888; font-size: 12px; }
+.rank-title { display: flex; align-items: center; margin-bottom: 10px; }
+.rank-title h2 { margin: 0; font-size: 18px; display: flex; align-items: center; }
 
 /* スクロール機能 */
-.table-wrapper { width: 100%; display: block; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+.table-wrapper { width: 100%; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
-
-th:nth-child(1), td:nth-child(1) { width: 80px; }
-th:nth-child(2), td:nth-child(2) { width: 120px; }
-th:nth-child(3), td:nth-child(3) { width: 100px; }
-th:nth-child(4), td:nth-child(4) { width: 150px; }
-
 td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
 
 /* 価格バー */
-#price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; letter-spacing: 1px; }
+#price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
 #btc-price { color: #fff; margin-left: 5px; }
 
-.rank-title { display: flex; align-items: center; margin-bottom: 10px; }
-.rank-title h2 { margin: 0; font-size: 18px; }
-
-/* --- これが最終解決の3行です --- */
-.comparison { margin-top: 0 !important; }
-.comparison h3 { margin-top: 0 !important; }
-.rank:first-of-type, .exchange:first-of-type { margin-top: 0 !important; }
-
-/* --- 空白の真犯人を全て強制排除 --- */
-main { padding-top: 0 !important; } /* mainの上の隙間を消去 */
-.comparison { margin-top: 0 !important; padding-top: 5px !important; } /* 表の枠をバナーに密着 */
-.comparison h3 { margin-top: 0 !important; padding-top: 0 !important; } /* 表の中のタイトルの上を消去 */
-
-/* 注釈とランキングの間を密着 */
-.note { margin-bottom: 0 !important; }
-.rank:first-of-type, .exchange:first-of-type { margin-top: 0 !important; }
-
-/* 星と説明文を限界まで密着 */
-.stars { margin-bottom: 0 !important; }
-.rank p, .exchange p { margin-top: 0 !important; }
-
-/* 「※基本すべて無料で始められます。」の行自体の空白を消す */
-.note, p.note, .comparison + p {
-  margin-top: 0 !important;      /* 上の表との隙間を消す */
-  margin-bottom: 0 !important;   /* 下のランキングとの隙間を消す */
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  line-height: 1.2 !important;   /* 行間を詰めて高さを抑える */
-}
-
-/* そのすぐ下のランキングが上にズレないように調整 */
-.rank, .exchange {
-  margin-top: 5px !important;
-}
-/* 文字サイズは一切変えず、位置だけを無理やり上にズレ上げます */
-.comparison + *, .comparison + p, .comparison + div {
-  margin-top: -15px !important; /* マイナスの余白で、無理やり上に引っ張り上げます */
-  margin-bottom: 0 !important;
-}
-
-/* 注釈テキスト自体の余白も完全にゼロにします */
-p, div {
-  margin-top: 2px !important;
-  margin-bottom: 2px !important;
-}
-
-/* 星と説明文の間の隙間を消す（ここも力技） */
-.stars + p, .stars + span {
-  margin-top: -10px !important; /* 星のすぐ下の文字を上に引っ張り上げます */
-}
+footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
