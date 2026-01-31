@@ -1,167 +1,70 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>0円ではじめるBTC生活</title>
-  <link rel="stylesheet" href="css/style.css">
-<meta name="description" content="スマホで歩くだけ、記事を読むだけでビットコインが無料で貯まる！おすすめアプリをランキング形式で紹介。招待コードでボーナス特典あり。">
-<meta property="og:title" content="0円ではじめるBTC生活">
-<meta property="og:type" content="website">
-<meta property="og:image" content="img/banner.png">
-</head>
-<body>
-<div id="price-bar">
-  <span class="price-label">BTC 現在価格:</span>
-  <span id="btc-price">読み込み中...</span>
-</div>
+/* --- ベース設定 --- */
+body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
 
-<header class="site-header">
-  <img src="img/banner.png?v=2" class="header-banner" alt="バナー">
-  <div class="banner-text">0円ではじめるBTC生活</div>
-</header>
-
-<main>
-  <section class="comparison">
-    <h3>💎 アプリ別 特徴まとめ</h3>
-    <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>アプリ名</th>
-            <th>稼ぎ方</th>
-            <th>おすすめ度</th>
-            <th>特徴</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>BitStart</td><td>歩く・予想・広告</td><td>★★★★★</td><td>還元率が高い</td></tr>
-          <tr><td>BitWalk</td><td>歩く・予想</td><td>★★★★☆</td><td>シンプルで簡単</td></tr>
-          <tr><td>Cheeese</td><td>歩く・ニュース</td><td>★★★★☆</td><td>ニュースで貯まる</td></tr>
-          <tr><td>XRPWalk</td><td>歩く・予想</td><td>★★★☆☆</td><td>リップルが貯まる</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">※基本すべて無料で始められます。</p>
-  </section>
-
-  <section class="rank">
-    <div class="rank-title">
-      <img src="img/icon-bitstart.png" class="app-icon" alt="BitStart">
-      <h2>🥇 1位：Bit Start（BTC）</h2>
-    </div>
-    <div class="stars">★★★★★</div>
-    <p>歩く・広告視聴・価格予想でBTCが貯まるアプリ。招待コード入力で特典あり。</p>
-    <div class="links">
-      <a href="https://bitstart.jp" class="btn official" target="_blank">公式サイトを見る</a>
-      <button class="btn invite" onclick="copyCode(this, 'hvSrbM')">招待コードをコピー</button>
-    </div>
-  </section>
-
-  <section class="rank">
-    <div class="rank-title">
-      <img src="img/icon-bitwalk.png" class="app-icon" alt="BitWalk">
-      <h2>🥈 2位：BitWalk（BTC）</h2>
-    </div>
-    <div class="stars">★★★★☆</div>
-    <p>歩くだけでBTCが貯まる定番アプリ。価格予想ガチャ有り。</p>
-    <div class="links">
-      <a href="https://bitwalk.go.link/?adj_t=1kewl8oe&referrer_id=a58ba086-d65e-4885-8421-cf10049ce767#BitWalk" class="btn official" target="_blank">公式サイトを見る</a>
-    </div>
-  </section>
-
-  <section class="rank">
-    <div class="rank-title">
-      <img src="img/icon-cheeese.png" class="app-icon" alt="Cheeese">
-      <h2>🥉 3位：Cheeese（BTC）</h2>
-    </div>
-    <div class="stars">★★★★☆</div>
-    <p>歩く・記事を読んでBTCを獲得できるサービス。招待コード入力でスタート特典あり。</p>
-    <div class="links">
-      <a href="https://cheeese.monex.co.jp" class="btn official" target="_blank">公式サイトを見る</a>
-      <button class="btn invite" onclick="copyCode(this, 'n48p7v3t')">招待コードをコピー</button>
-    </div>
-  </section>
-
-  <section class="rank">
-    <div class="rank-title">
-      <img src="img/icon-xrpwalk.png" class="app-icon" alt="XRPWalk">
-      <h2>🏅 4位：XRPWalk（XRP）</h2>
-    </div>
-    <div class="stars">★★★☆☆</div>
-    <p>歩数に応じてXRPが貯まるアプリ。価格予想・ガチャ有り。</p>
-    <div class="links">
-      <a href="https://xrpwalk.go.link/?adj_t=1lrv1tvw&referrer_id=3cc338ac-fa6a-4e9d-aa5a-3dd2fe0670f1" class="btn official" target="_blank">公式サイトを見る</a>
-    </div>
-  </section>
-
-  <section class="exchange">
-    <div class="rank-title">
-      <img src="img/icon-bitflyer.png" class="app-icon" alt="bitFlyer">
-      <h2>🔐 貯めたBTCを売買・管理するなら bitFlyer</h2>
-    </div>
-    <div class="stars">
-      <span class="recommend">運営おすすめ</span>
-      <span class="star">★★★★★</span>
-    </div>
-    <p>暗号資産の取引には取引所口座が必要です。bitFlyerはビットコイン取引量9年連続No.1！最短5分で無料開設可能です。</p>
-    <div class="links">
-      <a href="https://bitflyer.com/invitation?id=estvcavj&lang=ja-JP" class="btn official" target="_blank">bitFlyer公式サイトを見る</a>
-      <button class="btn invite" onclick="copyCode(this, 'estvcavj')">招待コードをコピー</button>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <a href="about.html">このサイトについて</a> |
-  <a href="privacy.html">プライバシーポリシー</a>
-  <p>© 0円ではじめるBTC生活</p>
-</footer>
-
-<script>
-function copyCode(button, code) {
-  // クリップボードにコピー
-  navigator.clipboard.writeText(code).then(() => {
-    // 元の文字を保存
-    const originalText = button.innerText;
-    
-    // 文字を変えて、色を少し変える演出
-    button.innerText = 'コピー完了！';
-    button.style.backgroundColor = '#28a745'; // 一時的に緑色にする（お好みで）
-
-    // 2秒後に元の状態に戻す
-    setTimeout(() => {
-      button.innerText = originalText;
-      button.style.backgroundColor = ''; // 元のCSSの色に戻る
-    }, 2000);
-    
-  }).catch(err => {
-    alert('コピーに失敗しました。');
-  });
+.site-header {
+  position: relative; width: 100%; height: 160px; overflow: hidden; margin: 0; padding: 0 !important;
 }
-  async function fetchBTCPrice() {
-  const priceElement = document.getElementById('btc-price');
-  try {
-    // APIからビットコインの日本円価格を取得
-    const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=jpy');
-    const data = await response.json();
-    
-    // 桁区切りのカンマを入れて表示（例: 14,500,000円）
-    const price = data.bitcoin.jpy.toLocaleString();
-    priceElement.innerText = `¥${price}`;
-    priceElement.classList.remove('loading');
-  } catch (error) {
-    priceElement.innerText = '取得エラー';
-    console.error('価格取得に失敗しました', error);
-  }
+.site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+.site-header .banner-text {
+  position: absolute; left: 0; right: 0; bottom: 15px; text-align: center;
+  width: 100%; color: #fff; font-size: 22px; font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none;
 }
 
-// ページを読み込んだ時に実行
-fetchBTCPrice();
+/* メインの余白 */
+main { padding: 16px; }
 
-// 1分（60000ミリ秒）ごとに価格を自動更新
-setInterval(fetchBTCPrice, 60000);
-</script>
+.rank, .exchange {
+  margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
+}
+.exchange { background: #f7f7f7; }
 
-</body>
-</html>
+/* --- 【修正】星の色を gold に強制 --- */
+.stars {
+  margin: 4px 0 0px 0; 
+  display: flex; align-items: center; font-size: 18px;
+  /* 親要素の色を gold にして、直書きされた「★」を金色に染める */
+  color: gold !important; 
+}
+
+/* 「運営おすすめ」というクラスがついた文字だけを「赤」に戻す */
+.recommend { 
+  color: #ff4500 !important; 
+  font-weight: bold; 
+  margin-right: 8px; 
+  font-size: 16px; 
+}
+
+/* グレーの星を出すための指定（一応残します） */
+.star.gray, .gray { color: #ccc !important; }
+
+/* 説明文 */
+.rank p, .exchange p { margin-top: 4px !important; margin-bottom: 15px; line-height: 1.6; }
+
+/* --- 特徴まとめ（比較表）の余白 --- */
+.comparison {
+  margin-top: 0; 
+  margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
+}
+.note { margin-top: 8px; color: #888; font-size: 12px; }
+
+/* その他装飾 */
+.links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
+.btn.official { background: #28a745; color: #fff; }
+.btn.invite { background: #ff7f0f; color: #fff; }
+
+.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; background: #eee; }
+.rank-title { display: flex; align-items: center; margin-bottom: 10px; }
+.rank-title h2 { margin: 0; font-size: 18px; }
+
+.table-wrapper { width: 100%; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
+
+/* ランキング表内の3列目も gold に強制 */
+td:nth-child(3) { color: gold !important; letter-spacing: -1px; font-weight: bold; }
+
+#price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
+#btc-price { color: #fff; margin-left: 5px; }
+footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
