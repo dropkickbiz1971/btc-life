@@ -102,3 +102,17 @@ main { padding-top: 0 !important; } /* mainの上の隙間を消去 */
 /* 星と説明文を限界まで密着 */
 .stars { margin-bottom: 0 !important; }
 .rank p, .exchange p { margin-top: 0 !important; }
+
+/* 「※基本すべて無料で始められます。」の行自体の空白を消す */
+.note, p.note, .comparison + p {
+  margin-top: 0 !important;      /* 上の表との隙間を消す */
+  margin-bottom: 0 !important;   /* 下のランキングとの隙間を消す */
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2 !important;   /* 行間を詰めて高さを抑える */
+}
+
+/* そのすぐ下のランキングが上にズレないように調整 */
+.rank, .exchange {
+  margin-top: 5px !important;
+}
