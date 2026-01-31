@@ -11,7 +11,7 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none;
 }
 
-/* --- 【解決1】余白：バナーとの隙間を完全にゼロにする --- */
+/* --- 【解決】余白をゼロにする --- */
 main { padding: 0 16px 16px 16px; } 
 
 .comparison {
@@ -19,38 +19,35 @@ main { padding: 0 16px 16px 16px; }
   margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
 }
 
-/* --- 【解決2】星の色分け：継承を完全に遮断 --- */
+/* --- 【解決】星の色分け：親に色をつけず、中身を狙い撃つ --- */
 .stars {
   margin: 4px 0 0px 0; 
   display: flex; align-items: center; font-size: 18px;
-  color: #ff4500 !important; /* 「運営おすすめ」という文字を赤にする */
+  color: #111; /* デフォルトは黒（ここを赤にすると星が赤くなるので避ける） */
 }
 
-/* 親の赤色を完全に無視して、★を金にする */
-.stars .star, 
-.stars span { 
+/* 「運営おすすめ」という文字部分やrecommendクラスだけを赤にする */
+.stars { color: #ff4500 !important; }
+
+/* 星記号（★）だけを「金」で完全に上書きする */
+.stars span, .star { 
   color: gold !important; 
-  display: inline-block; 
+  display: inline-block;
   margin-right: 2px;
 }
 
-/* grayクラスが付いている☆だけを、金の上から「グレー」で塗り替える */
-.stars .star.gray, 
-.stars span.gray { 
+/* グレーの星（☆）を「グレー」でさらに上書きする */
+.stars span.gray, .star.gray { 
   color: #ccc !important; 
 }
 
-/* ランキング・枠設定 */
+/* --- 以下、共通デザイン --- */
 .rank, .exchange {
   margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
 }
 .exchange { background: #f7f7f7; }
-
-/* 説明文（星との間を詰める） */
 .rank p, .exchange p { margin-top: 4px !important; margin-bottom: 15px; line-height: 1.6; }
-.note { margin-top: 8px; color: #888; font-size: 12px; }
 
-/* ボタン・アイコン */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
 .btn.official { background: #28a745; color: #fff; }
@@ -60,13 +57,11 @@ main { padding: 0 16px 16px 16px; }
 .rank-title { display: flex; align-items: center; margin-bottom: 10px; }
 .rank-title h2 { margin: 0; font-size: 18px; }
 
-/* テーブル設定 */
 .table-wrapper { width: 100%; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
 td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
 
-/* その他 */
 #price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
 #btc-price { color: #fff; margin-left: 5px; }
 footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
