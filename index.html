@@ -5,56 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>0円ではじめるBTC生活</title>
   
-  <link rel="icon" href="img/icon-bitstart.png"> <meta name="description" content="スマホで歩くだけ、記事を読むだけでビットコインが無料で貯まる！おすすめアプリをランキング形式で紹介。招待コードでボーナス特典あり。">
-  <meta property="og:title" content="0円ではじめるBTC生活">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="img/banner.png">
+  <link rel="stylesheet" href="css/style.css">
 
-  /* --- 1. 全体のリセット（変な隙間をすべてゼロに） --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: "Meiryo", sans-serif; background: #fff; color: #111; line-height: 1.6; }
+  <style>
+    /* 2. ここで外部CSSの上書きを「確定」させる */
+    
+    /* 星と説明文の隙間を消す */
+    .stars {
+      margin-bottom: 0 !important; 
+      line-height: 1.0 !important;
+      display: block !important;
+    }
+    .rank p, .exchange p {
+      margin-top: 0 !important;
+      padding-top: 2px !important;
+    }
 
-/* --- 2. 価格バーとヘッダー（隙間をゼロに固定） --- */
-#price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
-#btc-price { color: #fff; }
-.site-header { width: 100%; height: 160px; overflow: hidden; position: relative; }
-.site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
-.site-header .banner-text { position: absolute; width: 100%; text-align: center; bottom: 15px; color: #fff; font-size: 22px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
+    /* バナー下の隙間を消す */
+    main { padding-top: 0 !important; }
+    .comparison { margin-top: 0 !important; }
 
-/* --- 3. メイン余白（バナー直下の隙間を消去） --- */
-main { padding: 0 16px 16px 16px; }
-.comparison { margin-top: 0 !important; margin-bottom: 24px; padding: 12px; border: 1px solid #eee; border-radius: 8px; }
+    /* 星の色を金色で固定 */
+    .stars, td:nth-child(3) { color: gold !important; }
+  </style>
 
-/* --- 4. ランキング部分（星と説明文の隙間を解消） --- */
-.rank, .exchange { margin-top: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
-.rank-title { display: flex; align-items: center; margin-bottom: 8px; }
-.app-icon { width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; }
-
-/* ★ここが重要：星と説明文を密着させる */
-.stars { 
-  color: gold !important; 
-  font-size: 18px; 
-  margin: 0 0 0px 0 !important; /* 下の余白を0に */
-  line-height: 1.0 !important; 
-}
-.rank p, .exchange p { 
-  margin-top: 2px !important; /* 星のすぐ下に配置 */
-  margin-bottom: 12px; 
-}
-
-/* --- 5. ボタンとテーブル（崩れ防止） --- */
-.links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-.btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; cursor: pointer; display: inline-block; border: none; }
-.btn.official { background: #28a745; color: #fff; }
-.btn.invite { background: #ff7f0f; color: #fff; }
-
-.table-wrapper { width: 100%; overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
-th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
-td:nth-child(3) { color: gold !important; font-weight: bold; }
-
-.recommend { color: #ff4500 !important; font-weight: bold; margin-right: 8px; }
-footer { text-align: center; padding: 30px 0; font-size: 12px; color: #666; }
+  <meta name="description" content="スマホで歩くだけ、記事を読むだけでビットコインが無料で貯まる！">
 </head>
 <body>
 
