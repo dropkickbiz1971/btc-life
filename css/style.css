@@ -52,3 +52,13 @@ td:nth-child(3) { color: #ffb400; }
 #price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
 #btc-price { color: #fff; margin-left: 5px; }
 footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
+
+/* --- 星と説明文の間をピンポイントで密着させる --- */
+.stars {
+  margin-bottom: 0 !important;   /* 星の下の余白を強制的に消す */
+}
+
+.rank p, .exchange p {
+  margin-top: 2px !important;    /* 説明文の上の余白を最小限にする */
+  padding-top: 0 !important;     /* 念のため余計な内側余白も消す */
+}
