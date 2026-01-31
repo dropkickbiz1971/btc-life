@@ -1,7 +1,7 @@
 /* --- 全体リセット --- */
 body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
 
-/* --- 【重要】バナーを真ん中にする設定（これ以外は書かない） --- */
+/* --- 【重要】バナーを真ん中にする設定 --- */
 .site-header {
   position: relative;
   width: 100%;
@@ -23,7 +23,7 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
   left: 0;
   right: 0;
   bottom: 15px;
-  text-align: center; /* これが文字を真ん中にします */
+  text-align: center;
   width: 100%;
   color: #fff;
   font-size: 22px;
@@ -37,6 +37,9 @@ main { padding: 16px; }
 .rank, .exchange { margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
 .exchange { background: #f7f7f7; }
 
+/* 説明文の上の余白を削って星に近づける（追加修正） */
+.rank p, .exchange p { margin-top: 0; margin-bottom: 12px; }
+
 /* --- ボタン --- */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
@@ -44,15 +47,15 @@ main { padding: 16px; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
 /* --- 装飾（運営おすすめ・星） --- */
-.stars { 
-  margin: 4px 0; 
-  display: flex; 
-  align-items: center; 
-  color: gold !important; /* !important を追加 */           /* ←ここを追加！これで中の★が全部金色になります */
-  font-size: 18px; 
+.stars {
+  margin: 4px 0 2px 0; /* 下の余白をさらに狭く調整 */
+  color: gold !important; 
+  display: flex;
+  align-items: center;
+  font-size: 18px;
 }
 
-.star { color: gold; margin-right: 2px; }
+.star { color: gold !important; margin-right: 2px; }
 .star.gray { color: #ccc; }
 
 .recommend { 
@@ -66,13 +69,13 @@ footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
 
 /* アイコンの共通設定 */
 .app-icon {
-  width: 40px;          /* アイコンのサイズ */
+  width: 40px;
   height: 40px;
-  border-radius: 8px;   /* 角を少し丸くする（アプリアイコン風） */
-  vertical-align: middle; /* 文字の高さに合わせる */
-  margin-right: 10px;   /* 文字との間の余白 */
+  border-radius: 8px;
+  vertical-align: middle;
+  margin-right: 10px;
   object-fit: contain;
-  background: #eee;     /* 画像がない時の仮背景 */
+  background: #eee;
 }
 
 /* タイトルの文字とアイコンを垂直中央に揃える */
@@ -82,57 +85,61 @@ footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
   font-size: 1.2rem;
   line-height: 1.2;
 }
-/* 比較表全体の枠 */
+
+/* 比較表全体の枠（上下の余白を詰めました） */
 .comparison {
-  margin-bottom: 24px;
+  margin-top: 0;       /* 上の余白をカット */
+  margin-bottom: 16px; /* 下の余白を少し詰め */
   padding: 12px;
   background: #fff;
   border: 1px solid #eee;
   border-radius: 8px;
-  /* 親は中身がはみ出しても「無視」してスクロールさせる */
   display: block; 
 }
 
-/* ★ここを強化しました：スクロールの肝 */
+/* 比較表の見出しの余白も調整 */
+.comparison h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* ★スクロール機能を維持 */
 .table-wrapper {
   width: 100%;
-  display: block;     /* flexなどの影響をリセット */
-  overflow-x: auto;   /* 横スクロールを強制有効 */
+  display: block;
+  overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch; 
 }
 
 table {
-  /* width: 100% ではなく、中身に合わせる（重要） */
   width: auto; 
-  min-width: 100%;    /* 最低でも親と同じ幅 */
+  min-width: 100%;
   border-collapse: collapse;
   font-size: 13px;
-  /* 文字が勝手に改行されないようにして「横長」を維持する */
   white-space: nowrap; 
 }
 
 th, td {
-  padding: 8px 10px;  /* 横の余白を少し戻して横長感を出す */
+  padding: 8px 10px;
   border-bottom: 1px solid #f0f0f0;
   text-align: left;
 }
 
-/* 各列の幅を固定して、綺麗に整列させる */
-th:nth-child(1), td:nth-child(1) { width: 80px; }  /* アプリ名 */
-th:nth-child(2), td:nth-child(2) { width: 120px; } /* 稼ぎ方 */
-th:nth-child(3), td:nth-child(3) { width: 100px; } /* 星 */
-th:nth-child(4), td:nth-child(4) { width: 150px; } /* 特徴 */
+th:nth-child(1), td:nth-child(1) { width: 80px; }
+th:nth-child(2), td:nth-child(2) { width: 120px; }
+th:nth-child(3), td:nth-child(3) { width: 100px; }
+th:nth-child(4), td:nth-child(4) { width: 150px; }
 
-/* おすすめ度の星 */
 td:nth-child(3) {
   color: #ffb400;
   letter-spacing: -1px;
 }
+
 /* 価格バーのスタイル */
 #price-bar {
-  background: #1a1a1a; /* ダークな背景 */
-  color: #f7931a;      /* ビットコインオレンジ */
+  background: #1a1a1a;
+  color: #f7931a;
   text-align: center;
   padding: 6px 0;
   font-size: 14px;
@@ -145,11 +152,10 @@ td:nth-child(3) {
   margin-left: 5px;
 }
 
-/* 読み込み中のアニメーション（少し点滅させる） */
 .loading {
   opacity: 0.5;
 }
-/* タイトルとアイコンを横並びにする設定 */
+
 .rank-title {
   display: flex;
   align-items: center;
