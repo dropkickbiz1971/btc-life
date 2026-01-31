@@ -1,57 +1,75 @@
-/* --- 1. スクロールと挙動の完全復旧 --- */
+/* --- 1. デザイン崩れとスクロールを「元の正常な状態」にリセット --- */
 html, body {
-  margin: 0; padding: 0;
-  overflow-x: hidden; /* 横揺れ（グラグラ）防止 */
-  overflow-y: auto;   /* スクロールを100%確保 */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 横揺れ防止のみ残す */
+  overflow-y: auto !important; /* スクロールを100%保証 */
+  height: auto !important;
+}
+
+/* --- 2. バナーと「特徴まとめ」の隙間をゼロにする --- */
+.site-header .header-banner {
+  display: block !important;
   width: 100%;
   height: auto;
 }
-body { font-family: "Meiryo", sans-serif; line-height: 1.5; background: #fff; color: #111; }
+main { 
+  padding: 0 16px 16px 16px !important; /* 上の余白を強制的にゼロにする */
+}
+.comparison {
+  margin-top: 0 !important;
+}
 
-/* --- 2. バナー下の隙間を完全に埋める --- */
-.site-header { width: 100%; margin: 0; }
-.site-header .header-banner { width: 100%; height: auto; display: block; }
-main { padding: 0 16px; margin: 0; }
-.comparison { margin-top: 0 !important; padding: 12px; border: 1px solid #eee; border-radius: 8px; }
+/* --- 3. 星の色：黒を金に、文字の赤を運営おすすめだけに限定 --- */
 
-/* --- 3. 星と文字の色を物理的に分離 --- */
+/* 親要素：文字色は黒に戻し、星が勝手に赤くなるのを防ぐ */
 .stars {
-  margin: 4px 0; display: flex; align-items: center; font-size: 18px;
-  color: #111; /* 基本は黒 */
+  color: #333 !important;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 4px 0;
 }
 
-/* 「運営おすすめ」という文字だけを赤にする */
-.recommend { 
-  color: #ff4500 !important; 
-  font-weight: bold; 
-  margin-right: 5px;
+/* 「運営おすすめ」という文字だけを赤に固定 */
+.recommend {
+  color: #ff4500 !important;
+  font-weight: bold;
 }
 
-/* ★（金色の星）を強制的に金にする。タグ（span/i）を直接指定 */
-.stars span, .stars i, .star { 
-  color: #ffb400 !important; 
+/* 全ての星（★）を「金」に強制固定 */
+.stars span, .stars i, .star {
+  color: #ffb400 !important; /* 金色 */
   display: inline-block;
+  margin-right: 2px;
 }
 
-/* ☆（グレーの星）をグレーにする */
-.stars .gray, .stars span.gray, .star.gray { 
-  color: #ccc !important; 
+/* 「gray」クラスがついている星（☆）だけを「グレー」で上書き */
+.stars .gray, .stars span.gray, .star.gray {
+  color: #ccc !important;
 }
 
-/* --- 4. ランキング・枠・ボタンのデザイン復旧 --- */
-.rank, .exchange { margin: 24px 0; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
+/* --- 4. ランキング枠・ボタン：標準的なデザインを維持 --- */
+.rank, .exchange {
+  margin: 24px 0;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
 .rank-title { display: flex; align-items: center; margin-bottom: 10px; }
 .app-icon { width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; }
 
-/* ボタン：崩れを防ぐために標準的なサイズへ */
-.btn { 
-  padding: 10px 18px; border-radius: 6px; 
-  text-decoration: none; font-weight: bold; 
-  display: inline-block; text-align: center;
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
 }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
-/* テーブル：スマホで横スクロールを許可し、全体は揺らさない */
-.table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-table { border-collapse: collapse; width: 100%; white-space: nowrap; font-size: 13px; }
+/* テーブル：スマホで横スクロールを許可 */
+.table-wrapper { width: 100%; overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; white-space: nowrap; }
