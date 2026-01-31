@@ -116,3 +116,19 @@ main { padding-top: 0 !important; } /* mainの上の隙間を消去 */
 .rank, .exchange {
   margin-top: 5px !important;
 }
+/* 文字サイズは一切変えず、位置だけを無理やり上にズレ上げます */
+.comparison + *, .comparison + p, .comparison + div {
+  margin-top: -15px !important; /* マイナスの余白で、無理やり上に引っ張り上げます */
+  margin-bottom: 0 !important;
+}
+
+/* 注釈テキスト自体の余白も完全にゼロにします */
+p, div {
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+}
+
+/* 星と説明文の間の隙間を消す（ここも力技） */
+.stars + p, .stars + span {
+  margin-top: -10px !important; /* 星のすぐ下の文字を上に引っ張り上げます */
+}
