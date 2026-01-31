@@ -6,7 +6,7 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
 }
 .site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* --- 【修正】余白：バナーとの隙間を物理的に消去 --- */
+/* --- 1. 余白修正：バナー直下の隙間を完全に殺す --- */
 main { padding: 0 16px 16px 16px; } 
 
 .comparison {
@@ -14,37 +14,39 @@ main { padding: 0 16px 16px 16px; }
   margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
 }
 
-/* --- 【解決】色分け：親に色を塗らず、中身だけを個別に指定 --- */
+/* --- 2. 星の色修正：文字、★、☆を個別に狙い撃ち --- */
 .stars {
   margin: 4px 0 0px 0; 
   display: flex; align-items: center; font-size: 18px;
-  /* 親要素(stars)には絶対に color を指定しない（中の星に干渉するため） */
+  color: #ff4500 !important; /* 親要素を赤にして「文字」を赤くする */
 }
 
-/* 1. 「運営おすすめ」の文字だけを赤にする */
-.recommend { 
-  color: #ff4500 !important; 
-}
-
-/* 2. ★記号だけを金にする */
-.star { 
+/* ★（金色の星）を強制上書き。spanやiタグ、starクラスすべてに対応 */
+.stars span:not(.gray), 
+.stars i:not(.gray),
+.stars .star:not(.gray) { 
   color: gold !important; 
   margin-right: 2px;
 }
 
-/* 3. ☆（grayクラス）だけをグレーにする */
-.star.gray { 
+/* ☆（グレーの星）を最優先でグレーに固定 */
+.stars .gray, 
+.stars span.gray, 
+.stars i.gray { 
   color: #ccc !important; 
 }
 
-/* --- ランキング枠と説明文 --- */
+/* 念のため「運営おすすめ」の文字クラスも赤に固定 */
+.recommend { color: #ff4500 !important; }
+
+/* --- 3. ランキング枠と説明文 --- */
 .rank, .exchange {
   margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
 }
 .exchange { background: #f7f7f7; }
 .rank p, .exchange p { margin-top: 4px !important; margin-bottom: 15px; line-height: 1.6; }
 
-/* --- ボタン・アイコン・その他 --- */
+/* --- 4. ボタン・アイコン・テーブル --- */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
 .btn.official { background: #28a745; color: #fff; }
