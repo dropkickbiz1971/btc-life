@@ -89,3 +89,16 @@ td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
 .comparison { margin-top: 0 !important; }
 .comparison h3 { margin-top: 0 !important; }
 .rank:first-of-type, .exchange:first-of-type { margin-top: 0 !important; }
+
+/* --- 空白の真犯人を全て強制排除 --- */
+main { padding-top: 0 !important; } /* mainの上の隙間を消去 */
+.comparison { margin-top: 0 !important; padding-top: 5px !important; } /* 表の枠をバナーに密着 */
+.comparison h3 { margin-top: 0 !important; padding-top: 0 !important; } /* 表の中のタイトルの上を消去 */
+
+/* 注釈とランキングの間を密着 */
+.note { margin-bottom: 0 !important; }
+.rank:first-of-type, .exchange:first-of-type { margin-top: 0 !important; }
+
+/* 星と説明文を限界まで密着 */
+.stars { margin-bottom: 0 !important; }
+.rank p, .exchange p { margin-top: 0 !important; }
