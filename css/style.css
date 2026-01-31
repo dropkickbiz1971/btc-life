@@ -84,3 +84,8 @@ td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
 
 .rank-title { display: flex; align-items: center; margin-bottom: 10px; }
 .rank-title h2 { margin: 0; font-size: 18px; }
+
+/* --- これが最終解決の3行です --- */
+.comparison { margin-top: 0 !important; }
+.comparison h3 { margin-top: 0 !important; }
+.rank:first-of-type, .exchange:first-of-type { margin-top: 0 !important; }
