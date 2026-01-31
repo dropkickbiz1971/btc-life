@@ -44,10 +44,23 @@ main { padding: 16px; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
 /* --- 装飾（運営おすすめ・星） --- */
-.stars { margin: 4px 0; display: flex; align-items: center; }
-.star { color: gold; font-size: 18px; margin-right: 2px; }
+.stars { 
+  margin: 4px 0; 
+  display: flex; 
+  align-items: center; 
+  color: gold;           /* ←ここを追加！これで中の★が全部金色になります */
+  font-size: 18px; 
+}
+
+.star { color: gold; margin-right: 2px; }
 .star.gray { color: #ccc; }
-.recommend { font-weight: bold; color: #ff4500; margin-right: 8px; font-size: 16px; }
+
+.recommend { 
+  font-weight: bold; 
+  color: #ff4500; 
+  margin-right: 8px; 
+  font-size: 16px; 
+}
 
 footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
 
