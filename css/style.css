@@ -116,3 +116,23 @@ td:nth-child(3) {
   color: #ffb400;
   letter-spacing: -1px;
 }
+/* 価格バーのスタイル */
+#price-bar {
+  background: #1a1a1a; /* ダークな背景 */
+  color: #f7931a;      /* ビットコインオレンジ */
+  text-align: center;
+  padding: 6px 0;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#btc-price {
+  color: #fff;
+  margin-left: 5px;
+}
+
+/* 読み込み中のアニメーション（少し点滅させる） */
+.loading {
+  opacity: 0.5;
+}
