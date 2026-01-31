@@ -4,33 +4,36 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
 .site-header {
   position: relative; width: 100%; height: 160px; overflow: hidden; margin: 0; padding: 0 !important;
 }
-.site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+.site-header .header-banner { 
+  width: 100%; height: 100%; object-fit: cover; 
+  display: block; /* 画像下の謎の隙間を消す基本設定 */
+}
 .site-header .banner-text {
   position: absolute; left: 0; right: 0; bottom: 15px; text-align: center;
   width: 100%; color: #fff; font-size: 22px; font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none;
 }
 
-/* --- 【修正】特徴まとめの上の余白を完全に消去 --- */
+/* --- 【修正】余白：mainとバナーの間の隙間を完全にゼロにする --- */
 main { padding: 0 16px 16px 16px; } 
 
 .comparison {
-  margin-top: 0 !important; 
+  margin-top: 0 !important; /* 特徴まとめをバナーに密着させる */
   margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
 }
 
-/* --- 【修正】文字は赤、星は金とグレーに分離 --- */
+/* --- 【修正】色：文字は赤、星は金/グレーを「完全に」分離して上書き --- */
 .stars {
   margin: 4px 0 0px 0; 
   display: flex; align-items: center; font-size: 18px;
-  color: #ff4500 !important; /* 文字（運営おすすめ）を赤に */
+  color: #ff4500 !important; /* 「運営おすすめ」の文字を赤にする */
 }
 
-/* ★を金に固定 */
-.star { color: gold !important; margin-right: 2px; }
+/* 親（.stars）の赤色を強制解除して、星記号だけを金にする */
+.stars .star, .star { color: gold !important; margin-right: 2px; }
 
-/* ☆をグレーに固定 */
-.star.gray { color: #ccc !important; }
+/* grayクラスが付いている☆だけを確実にグレーにする */
+.stars .star.gray, .star.gray { color: #ccc !important; }
 
 /* ランキング・枠設定 */
 .rank, .exchange {
