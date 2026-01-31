@@ -1,12 +1,19 @@
-/* --- ベース設定 --- */
-body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
-
-.site-header {
-  position: relative; width: 100%; height: 160px; overflow: hidden; margin: 0; padding: 0 !important;
+/* --- ベース設定：スクロールを確実に有効化 --- */
+html, body { 
+  margin: 0; padding: 0; background: #fff; color: #111;
+  overflow-y: auto !important; 
 }
-.site-header .header-banner { width: 100%; height: 100%; object-fit: cover; display: block; }
+body { font-family: "Meiryo", sans-serif; line-height: 1.6; }
 
-/* --- 1. 余白修正：バナー直下の隙間を完全に殺す --- */
+/* ヘッダー */
+.site-header {
+  position: relative; width: 100%; height: 160px; overflow: hidden;
+}
+.site-header .header-banner { 
+  width: 100%; height: 100%; object-fit: cover; display: block; 
+}
+
+/* --- 【修正】余白：バナー下の隙間を完全にゼロにする --- */
 main { padding: 0 16px 16px 16px; } 
 
 .comparison {
@@ -14,48 +21,51 @@ main { padding: 0 16px 16px 16px; }
   margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
 }
 
-/* --- 2. 星の色修正：文字、★、☆を個別に狙い撃ち --- */
+/* --- 【修正】色：文字（運営おすすめ）のみ赤、★は金、☆はグレー --- */
 .stars {
   margin: 4px 0 0px 0; 
   display: flex; align-items: center; font-size: 18px;
-  color: #ff4500 !important; /* 親要素を赤にして「文字」を赤くする */
+  color: #111; /* 星の横に他の文字があっても基本は黒 */
 }
 
-/* ★（金色の星）を強制上書き。spanやiタグ、starクラスすべてに対応 */
-.stars span:not(.gray), 
-.stars i:not(.gray),
-.stars .star:not(.gray) { 
-  color: gold !important; 
+/* 「運営おすすめ」という文字クラスだけを赤にする */
+.recommend { 
+  color: #ff4500 !important; 
+  font-weight: bold;
+}
+
+/* 星記号（★）だけを金にする。親の色に影響されないようタグで指定 */
+.stars span, .star { 
+  color: #ffb400 !important; /* 金色 */
   margin-right: 2px;
 }
 
-/* ☆（グレーの星）を最優先でグレーに固定 */
-.stars .gray, 
-.stars span.gray, 
-.stars i.gray { 
+/* グレーの星（☆）だけをグレーにする */
+.stars .gray, .stars span.gray, .star.gray { 
   color: #ccc !important; 
 }
 
-/* 念のため「運営おすすめ」の文字クラスも赤に固定 */
-.recommend { color: #ff4500 !important; }
-
-/* --- 3. ランキング枠と説明文 --- */
+/* --- ランキング・枠（元のデザインを維持） --- */
 .rank, .exchange {
   margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
 }
 .exchange { background: #f7f7f7; }
-.rank p, .exchange p { margin-top: 4px !important; margin-bottom: 15px; line-height: 1.6; }
+.rank p, .exchange p { margin-top: 8px; margin-bottom: 15px; }
 
-/* --- 4. ボタン・アイコン・テーブル --- */
 .links { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
-.btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; border: none; cursor: pointer; }
+.btn { padding: 12px 18px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
-.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; background: #eee; }
+
+.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; }
 .rank-title { display: flex; align-items: center; margin-bottom: 10px; }
 .rank-title h2 { margin: 0; font-size: 18px; }
+
+/* テーブル */
+.table-wrapper { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
-td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
+td:nth-child(3) { color: #ffb400; }
+
 #price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
 footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
