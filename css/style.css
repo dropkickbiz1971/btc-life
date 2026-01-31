@@ -1,4 +1,4 @@
-/* --- 元のデザイン・サイズを維持したベースコード --- */
+/* --- あなたの元のデザインに完全復元 --- */
 body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #111; }
 
 .site-header {
@@ -13,9 +13,8 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
 
 main { padding: 16px; }
 
-/* ランキング枠の設定を元に戻す */
 .rank, .exchange {
-  margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
+  margin-top: 24px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px;
 }
 .exchange { background: #f7f7f7; }
 
@@ -24,41 +23,39 @@ main { padding: 16px; }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
-/* 星と説明文の余白を元の標準的な間隔に戻す */
+/* 星と説明文の間の修正（安全な範囲のみ） */
 .stars {
-  margin: 4px 0 8px 0; 
+  margin: 4px 0 0px 0; /* 下の余白を0に */
   color: gold !important; display: flex; align-items: center; font-size: 18px;
 }
 .star { color: gold !important; margin-right: 2px; }
 .star.gray { color: #ccc; }
-.rank p, .exchange p { margin-bottom: 12px; line-height: 1.6; }
 
-/* 比較表の設定を元に戻す */
+/* 説明文自体の上の隙間を少しだけ詰める */
+.rank p, .exchange p { margin-top: 4px !important; margin-bottom: 15px; line-height: 1.6; }
+
+.recommend { font-weight: bold; color: #ff4500; margin-right: 8px; font-size: 16px; }
+
+footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
+
+.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; background: #eee; }
+
+.rank h2, .exchange h2 { display: flex; align-items: center; font-size: 1.2rem; line-height: 1.2; }
+
+/* 比較表と注釈 */
 .comparison {
   margin-bottom: 24px; padding: 12px; background: #fff; border: 1px solid #eee; border-radius: 8px;
 }
 .note { margin-top: 8px; color: #888; font-size: 12px; }
 
-/* テーブル・アイコンなどの装飾を元に戻す */
-.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; background: #eee; }
-.rank-title { display: flex; align-items: center; margin-bottom: 10px; }
-.rank-title h2 { margin: 0; font-size: 18px; }
-
 .table-wrapper { width: 100%; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
-td:nth-child(3) { color: #ffb400; }
+
+td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
 
 #price-bar { background: #1a1a1a; color: #f7931a; text-align: center; padding: 6px 0; font-size: 14px; font-weight: bold; }
 #btc-price { color: #fff; margin-left: 5px; }
-footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
 
-/* --- 星と説明文の間をピンポイントで密着させる --- */
-.stars {
-  margin-bottom: 0 !important;   /* 星の下の余白を強制的に消す */
-}
-
-.rank p, .exchange p {
-  margin-top: 2px !important;    /* 説明文の上の余白を最小限にする */
-  padding-top: 0 !important;     /* 念のため余計な内側余白も消す */
-}
+.rank-title { display: flex; align-items: center; margin-bottom: 10px; }
+.rank-title h2 { margin: 0; font-size: 18px; }
