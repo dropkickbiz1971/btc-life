@@ -20,7 +20,9 @@ body { font-family: "Meiryo", sans-serif; margin: 0; background: #fff; color: #1
 
 /* --- メインコンテンツ --- */
 main { padding: 16px; }
-.rank, .exchange { margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
+
+/* ★ランキング枠の上の余白を 24px → 5px に削減 */
+.rank, .exchange { margin-top: 5px; margin-bottom: 24px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
 .exchange { background: #f7f7f7; }
 
 /* --- ボタン --- */
@@ -29,9 +31,9 @@ main { padding: 16px; }
 .btn.official { background: #28a745; color: #fff; }
 .btn.invite { background: #ff7f0f; color: #fff; }
 
-/* --- 【修正1】星と説明文の間を詰める --- */
+/* --- 星と説明文の密着修正 --- */
 .stars {
-  margin: 4px 0 0px 0; /* 下の余白を0に */
+  margin: 4px 0 0px 0; /* 下を 0 に固定 */
   color: gold !important; 
   display: flex;
   align-items: center;
@@ -40,25 +42,20 @@ main { padding: 16px; }
 .star { color: gold !important; margin-right: 2px; }
 .star.gray { color: #ccc; }
 
-/* 説明文自体の上の余白もゼロにして密着させる */
-.rank p, .exchange p { margin-top: 0 !important; margin-bottom: 12px; }
+/* ★説明文の上の余白を強制的に 0 にして星に密着 */
+.rank p, .exchange p { margin-top: 0 !important; margin-bottom: 15px; }
 
 .recommend { font-weight: bold; color: #ff4500; margin-right: 8px; font-size: 16px; }
 
 footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
 
-/* アイコン設定 */
-.app-icon {
-  width: 40px; height: 40px; border-radius: 8px;
-  vertical-align: middle; margin-right: 10px;
-  object-fit: contain; background: #eee;
-}
+.app-icon { width: 40px; height: 40px; border-radius: 8px; vertical-align: middle; margin-right: 10px; object-fit: contain; background: #eee; }
 
 .rank h2, .exchange h2 { display: flex; align-items: center; font-size: 1.2rem; line-height: 1.2; }
 
-/* --- 【修正2】比較表と注釈の下を詰める --- */
+/* --- 比較表と注釈の余白修正 --- */
 .comparison {
-  margin-bottom: 0px; /* 下の余白をゼロに */
+  margin-bottom: 0px; /* 下を 0 に固定 */
   padding: 12px;
   background: #fff;
   border: 1px solid #eee;
@@ -66,17 +63,11 @@ footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
   display: block; 
 }
 
-/* 注釈自体の下の余白もゼロに */
-.note { margin-bottom: 0 !important; margin-top: 4px; color: #888; font-size: 12px; }
+/* ★注釈の下の余白を強制的に 0 にして次のランキングに繋げる */
+.note { margin-top: 4px; margin-bottom: 0px !important; color: #888; font-size: 12px; }
 
-/* 比較表のすぐ下のランキングを上に引き上げる */
-.comparison + .rank, .comparison + .exchange { margin-top: 0px; }
-
-/* --- スクロール機能維持 --- */
-.table-wrapper {
-  width: 100%; display: block; overflow-x: auto; overflow-y: hidden;
-  -webkit-overflow-scrolling: touch; 
-}
+/* スクロール機能 */
+.table-wrapper { width: 100%; display: block; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
 table { width: auto; min-width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
 th, td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; text-align: left; }
 
@@ -93,9 +84,3 @@ td:nth-child(3) { color: #ffb400; letter-spacing: -1px; }
 
 .rank-title { display: flex; align-items: center; margin-bottom: 10px; }
 .rank-title h2 { margin: 0; font-size: 18px; }
-
-/* --- 強制余白カット設定 --- */
-.comparison, .note { margin-bottom: 0px !important; }
-.rank, .exchange { margin-top: 0px !important; margin-bottom: 15px !important; }
-.stars { margin-bottom: 0px !important; }
-.rank p, .exchange p { margin-top: 0px !important; }
