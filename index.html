@@ -76,27 +76,27 @@
     footer a { color: #666; text-decoration: none; margin: 0 5px; }
     <style>
   <style>
-  /* 1. 星の設定：下の文章を「適度に」引き寄せる */
+  <style>
+  /* 全ての余計な動きを強制停止し、縦に並べて隙間を消す */
   .stars {
+    display: table !important;    /* blockより強力に独立させ、横並びを物理的に阻止 */
     color: #ffcc00 !important;
-    display: block !important;
-    margin-bottom: -4px !important; /* 重ならないギリギリの数値に修正 */
-    line-height: 1.2 !important;
+    margin-bottom: 0 !important;  /* 一旦0にして様子見 */
+    line-height: 1.0 !important;
+    float: none !important;       /* 万が一の回り込みを解除 */
   }
 
-  /* 2. 文章の設定：上の余白を消して密着させる */
   .rank p, .exchange p {
     display: block !important;
-    margin-top: 0 !important;
+    margin-top: 0 !important;    /* 星のすぐ下から開始 */
     padding-top: 0 !important;
+    clear: both !important;      /* 上に何があっても必ず下の行へ */
   }
 
-  /* 3. 星の色 */
+  /* 星の色 */
   .star { color: #ffcc00 !important; }
   .star.gray { color: #ccc !important; }
 </style>
-</style>
-  </style>
 </head>
 <body>
 
