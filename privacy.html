@@ -6,52 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* 1. ページ全体をindexと同じ幅（最大600px程度）に強制ロック */
-  body {
-    max-width: 600px !important;
+  /* 1. バナーエリア：巨大化を殺し、indexのサイズを再現 */
+  .header {
+    max-width: 500px !important; /* バナーの横幅をここで制限 */
     margin: 0 auto !important;
-    padding: 0 10px !important;
   }
-
-  /* 2. バナーをページ幅いっぱいにしつつ、巨大化を阻止 */
   .header-banner {
     width: 100% !important;
-    max-width: 100% !important;
     height: auto !important;
     display: block !important;
   }
-
-  /* 3. バナーコンテナをindexと同期 */
   .banner-container {
     position: relative !important;
     line-height: 0 !important;
-    width: 100% !important;
   }
-
-  /* 4. バナー内の文字を中央に小さく配置 */
   .banner-text {
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    font-size: 1.2rem !important; /* indexのサイズ感 */
+    font-size: 1.1rem !important;
     color: #fff !important;
     font-weight: bold !important;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
     white-space: nowrap !important;
   }
 
-  /* 5. 巨大化した「Privacy」等の見出しを標準サイズに叩き落とす */
-  h1 {
-    font-size: 1.3rem !important;
+  /* 2. ボタンの配列崩れを解決（横並びを復活） */
+  .links {
+    display: flex !important;      /* 横に並べる */
+    justify-content: center !important; /* 中央に寄せる */
+    gap: 10px !important;           /* ボタン間の隙間 */
+    margin-top: 30px !important;
+    flex-wrap: wrap !important;    /* スマホで溢れたら改行 */
+  }
+  .btn {
+    display: inline-block !important;
+    width: auto !important;         /* 幅が広がりすぎないように */
+    min-width: 140px !important;
+    padding: 10px 15px !important;
     text-align: center !important;
-    margin: 20px 0 !important;
   }
 
-  h2 {
-    font-size: 1.1rem !important;
-    margin: 15px 0 10px !important;
+  /* 3. 本文エリアの調整 */
+  .page {
+    max-width: 500px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    text-align: left;
   }
+  h1 { font-size: 1.2rem !important; text-align: center; }
 </style>
 </head>
 <body>
