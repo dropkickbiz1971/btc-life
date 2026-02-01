@@ -6,56 +6,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* 1. バナーエリア：巨大化を殺し、indexのサイズを再現 */
+  /* 1. ヘッダー：indexの「.site-header」の設定を完全再現 */
   .header {
-    max-width: 500px !important; /* バナーの横幅をここで制限 */
-    margin: 0 auto !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 160px !important; /* indexと同じ160pxに固定 */
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
+
+  /* 2. バナー画像：indexの「object-fit: cover」を適用 */
   .header-banner {
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important; /* 160pxいっぱいに広げる */
+    object-fit: cover !important; /* 画像を歪ませず、枠に合わせて切り抜く */
     display: block !important;
   }
-  .banner-container {
-    position: relative !important;
-    line-height: 0 !important;
-  }
+
+  /* 3. バナー内テキスト：indexの配置（下から15px）を再現 */
   .banner-text {
     position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    font-size: 1.1rem !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 15px !important; /* indexと同じ位置 */
+    text-align: center !important;
+    width: 100% !important;
     color: #fff !important;
+    font-size: 22px !important; /* indexと同じ22px */
     font-weight: bold !important;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
-    white-space: nowrap !important;
+    pointer-events: none !important;
+    margin: 0 !important;
   }
 
-  /* 2. ボタンの配列崩れを解決（横並びを復活） */
-  .links {
-    display: flex !important;      /* 横に並べる */
-    justify-content: center !important; /* 中央に寄せる */
-    gap: 10px !important;           /* ボタン間の隙間 */
-    margin-top: 30px !important;
-    flex-wrap: wrap !important;    /* スマホで溢れたら改行 */
+  /* 4. 下層ページの見出しとボタンのレイアウト崩れ修正 */
+  h1 {
+    font-size: 1.4rem !important;
+    text-align: center !important;
+    margin: 20px 0 !important;
   }
+
+  .page {
+    max-width: 800px !important; /* 本文の読みやすい幅 */
+    margin: 0 auto !important;
+    padding: 0 20px 40px !important;
+  }
+
+  .links {
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    margin-top: 30px !important;
+  }
+
   .btn {
     display: inline-block !important;
-    width: auto !important;         /* 幅が広がりすぎないように */
-    min-width: 140px !important;
-    padding: 10px 15px !important;
+    min-width: 160px !important;
+    padding: 12px 20px !important;
     text-align: center !important;
+    text-decoration: none !important;
+    border-radius: 5px !important;
+    font-weight: bold !important;
   }
-
-  /* 3. 本文エリアの調整 */
-  .page {
-    max-width: 500px !important;
-    margin: 0 auto !important;
-    padding: 20px !important;
-    text-align: left;
-  }
-  h1 { font-size: 1.2rem !important; text-align: center; }
 </style>
 </head>
 <body>
