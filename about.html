@@ -6,52 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* バナーの巨大化を抑え、位置を整える */
+  /* 1. ヘッダー全体の余白をindexに合わせる */
+  .header {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  /* 2. バナーのサイズをindexと完全に一致させる */
   .header-banner {
     width: 100% !important;
-    max-width: 800px !important; /* indexと同じ最大幅に制限 */
+    max-width: 100% !important; /* 親要素の幅に従わせる */
     height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
+    display: block;
   }
 
+  /* 3. 文字を画像の中央に重ねる設定（indexの再現） */
   .banner-container {
     position: relative;
+    display: inline-block; /* 画像の幅にコンテナを合わせる */
     width: 100%;
-    overflow: hidden;
-    line-height: 0; /* 画像下の余計な隙間をカット */
+    line-height: 0;
   }
 
-  /* バナー内の重なり文字を中央に */
   .banner-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     color: #fff;
     font-weight: bold;
-    font-size: 1.2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    width: 100%;
-    text-align: center;
+    font-size: 1.5rem; /* indexのサイズ感に調整 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    margin: 0;
+    pointer-events: none;
   }
 
-  /* 下層ページの見出し調整 */
-  .header h1 {
-    font-size: 1.4rem;
-    margin: 20px 0 10px;
-    color: #333;
-    text-align: center;
-  }
-
-  /* 本文の余白調整 */
-  .page {
-    padding: 20px;
-    line-height: 1.8;
-  }
-  
-  .page p {
-    margin-bottom: 15px;
+  /* 4. 「このサイトについて」などの見出しの余白 */
+  h1 {
+    margin-top: 20px;
+    font-size: 1.6rem;
   }
 </style>
 </head>
