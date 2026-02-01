@@ -5,6 +5,55 @@
   <title>このサイトについて｜0円ではじめるBTC生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+  /* バナーの巨大化を抑え、位置を整える */
+  .header-banner {
+    width: 100% !important;
+    max-width: 800px !important; /* indexと同じ最大幅に制限 */
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  .banner-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0; /* 画像下の余計な隙間をカット */
+  }
+
+  /* バナー内の重なり文字を中央に */
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 下層ページの見出し調整 */
+  .header h1 {
+    font-size: 1.4rem;
+    margin: 20px 0 10px;
+    color: #333;
+    text-align: center;
+  }
+
+  /* 本文の余白調整 */
+  .page {
+    padding: 20px;
+    line-height: 1.8;
+  }
+  
+  .page p {
+    margin-bottom: 15px;
+  }
+</style>
 </head>
 <body>
 
