@@ -74,16 +74,26 @@
 
     footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
     footer a { color: #666; text-decoration: none; margin: 0 5px; }
-    .stars {
-  display: block !important; /* 横に並ばせない（改行を維持） */
-  margin-bottom: -10px !important; /* 下の文章を無理やり上に引き寄せる */
-  line-height: 1.0 !important;
-}
+    <style>
+  /* 1. 星の色を金色にし、下の隙間をマイナスで潰す */
+  .stars {
+    color: #ffcc00 !important;
+    display: block !important;     /* 確実に「縦」に並べる */
+    margin-bottom: -15px !important; /* 下の文字を限界まで引き上げる */
+    line-height: 1 !important;
+  }
 
-.rank p, .exchange p {
-  display: block !important; /* 横に並ばせない */
-  margin-top: 0 !important;
-}
+  /* 2. 下の文章の上の余白を完全にゼロにする */
+  .rank p, .exchange p {
+    display: block !important;     /* 確実に「縦」に並べる */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* 3. 星個別の色設定 */
+  .star { color: #ffcc00 !important; }
+  .star.gray { color: #ccc !important; }
+</style>
   </style>
 </head>
 <body>
