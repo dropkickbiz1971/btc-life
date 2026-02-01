@@ -202,7 +202,33 @@
 <div class="news-section" style="max-width: 600px; margin: 40px auto; padding: 0 15px;">
   <h2 style="font-size: 1.1rem; text-align: center; margin-bottom: 20px; color: #333; font-weight: bold;">最新の暗号資産ニュース</h2>
   
-  <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" pre-loader="true" data-fw-param="162446/"></script>
+  <div id="news-list" style="background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 15px;">
+    読み込み中...
+  </div>
+
+  <script>
+    (function() {
+      const newsContainer = document.getElementById('news-list');
+      // GoogleニュースのRSSをJSONに変換する公開APIを利用
+      fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3D%25E4%25BB%25AE%25E6%2583%25BD%25E9%2580%259A%25E8%25B2%25A8%26hl%3Dja%26gl%3DJP%26ceid%3DJP%3Aja')
+        .then(res => res.json())
+        .then(data => {
+          let html = '<ul style="list-style: none; padding: 0; margin: 0;">';
+          data.items.slice(0, 5).forEach(item => {
+            html += `
+              <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                <a href="${item.link}" target="_blank" style="text-decoration: none; color: #007bff; font-weight: bold; font-size: 0.95rem;">${item.title}</a>
+                <div style="font-size: 0.8rem; color: #888; margin-top: 5px;">${item.pubDate}</div>
+              </li>`;
+          });
+          html += '</ul>';
+          newsContainer.innerHTML = html;
+        })
+        .catch(() => {
+          newsContainer.innerHTML = 'ニュースの読み込みに失敗しました。';
+        });
+    })();
+  </script>
 </div>
 
 </main>
