@@ -75,12 +75,14 @@
     footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
     footer a { color: #666; text-decoration: none; margin: 0 5px; }
     .stars {
-  display: inline-block; /* ブロック要素としての改行ルールを無効化 */
-  margin-bottom: 0 !important;
+  display: block !important; /* 横に並ばせない（改行を維持） */
+  margin-bottom: -10px !important; /* 下の文章を無理やり上に引き寄せる */
+  line-height: 1.0 !important;
 }
 
 .rank p, .exchange p {
-  display: inline; /* 星のすぐ横から文字が始まるようにする */
+  display: block !important; /* 横に並ばせない */
+  margin-top: 0 !important;
 }
   </style>
 </head>
