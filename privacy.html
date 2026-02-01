@@ -6,73 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* 1. ヘッダー：indexの「.site-header」を完璧にコピー */
-  .header {
-    position: relative !important;
-    width: 100% !important;
-    height: 160px !important;
-    overflow: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: #000; /* 画像読み込みまでの代用 */
-  }
+    /* 1. indexの「.site-header」を完全に移植 */
+    .site-header {
+      position: relative !important;
+      width: 100% !important;
+      height: 160px !important;
+      overflow: hidden !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
 
-  /* 2. 画像：indexと同じく枠いっぱいに広げる */
-  .header-banner {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
+    /* 2. 画像設定：!importantで黒枠を消し、隙間なく埋める */
+    .site-header .header-banner {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+    }
 
-  /* 3. バナー上の文字：indexと同じ配置に固定 */
-  .banner-text {
-    position: absolute !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 15px !important;
-    text-align: center !important;
-    width: 100% !important;
-    color: #fff !important;
-    font-size: 22px !important;
-    font-weight: bold !important;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
-    pointer-events: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 5 !important;
-  }
+    /* 3. テキスト位置：indexと1pxの狂いもなく合わせる */
+    .site-header .banner-text {
+      position: absolute !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 15px !important;
+      text-align: center !important;
+      width: 100% !important;
+      color: #fff !important;
+      font-size: 22px !important;
+      font-weight: bold !important;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+      pointer-events: none !important;
+    }
 
-  /* 4. スマホでも「絶対に」ボタンを横に並べる */
-  .links {
-    display: flex !important;
-    flex-wrap: nowrap !important; /* 絶対に折り返さない */
-    justify-content: center !important;
-    gap: 8px !important;
-    margin-top: 30px !important;
-    padding: 0 10px !important;
-  }
+    /* 4. スマホのボタン横並び：折り返しを「絶対に」禁止する */
+    .links {
+      display: flex !important;
+      flex-wrap: nowrap !important; /* スマホで縦になるのを防ぐ心臓部 */
+      justify-content: center !important;
+      gap: 10px !important;
+      margin-top: 30px !important;
+      width: 100% !important;
+    }
 
-  .btn {
-    flex: 1 !important; /* 幅を自動調整 */
-    max-width: 180px !important;
-    text-align: center !important;
-    padding: 10px 0 !important;
-    font-size: 13px !important; /* スマホで収まるサイズ */
-    text-decoration: none !important;
-    border-radius: 5px !important;
-    white-space: nowrap !important;
-  }
+    .btn {
+      flex: 1 !important;
+      min-width: 0 !important; /* 狭い画面で縮むことを許可 */
+      max-width: 160px !important;
+      padding: 10px 0 !important;
+      font-size: 13px !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+    }
 
-  /* 5. 本文内の余計な大きなタイトル（島表示の原因）を消す */
-  .page h1 {
-    display: none !important; /* バナーに文字があるなら本文の見出しは消す */
-  }
+    /* 5. 邪魔なタイトル（島表示）を隠す */
+    h1 { display: none !important; }
 </style>
 </head>
 <body>
 
-<header class="header">
+<header class="site-header">
   <div class="banner-container">
     <img src="img/banner.png" alt="0円ではじめるBTC生活" class="header-banner">
     <div class="banner-text">0円ではじめるBTC生活</div>
