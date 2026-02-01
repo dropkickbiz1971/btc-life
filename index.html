@@ -75,24 +75,26 @@
     footer { text-align: center; padding: 24px 16px; font-size: 12px; color: #666; }
     footer a { color: #666; text-decoration: none; margin: 0 5px; }
     <style>
-  /* 1. 星の色を金色にし、下の隙間をマイナスで潰す */
+  <style>
+  /* 1. 星の設定：下の文章を「適度に」引き寄せる */
   .stars {
     color: #ffcc00 !important;
-    display: block !important;     /* 確実に「縦」に並べる */
-    margin-bottom: -15px !important; /* 下の文字を限界まで引き上げる */
-    line-height: 1 !important;
+    display: block !important;
+    margin-bottom: -4px !important; /* 重ならないギリギリの数値に修正 */
+    line-height: 1.2 !important;
   }
 
-  /* 2. 下の文章の上の余白を完全にゼロにする */
+  /* 2. 文章の設定：上の余白を消して密着させる */
   .rank p, .exchange p {
-    display: block !important;     /* 確実に「縦」に並べる */
+    display: block !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
-  /* 3. 星個別の色設定 */
+  /* 3. 星の色 */
   .star { color: #ffcc00 !important; }
   .star.gray { color: #ccc !important; }
+</style>
 </style>
   </style>
 </head>
