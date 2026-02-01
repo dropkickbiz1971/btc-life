@@ -6,52 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* 1. バナーをindexと同じ「控えめなサイズ」に強制固定 */
+  /* 1. ページ全体をindexと同じ幅（最大600px程度）に強制ロック */
+  body {
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    padding: 0 10px !important;
+  }
+
+  /* 2. バナーをページ幅いっぱいにしつつ、巨大化を阻止 */
   .header-banner {
     width: 100% !important;
-    max-width: 500px !important; /* indexの見た目に合わせ、幅を制限 */
+    max-width: 100% !important;
     height: auto !important;
-    margin: 0 auto !important;
     display: block !important;
   }
 
-  /* 2. 重なる文字のサイズを修正 */
+  /* 3. バナーコンテナをindexと同期 */
   .banner-container {
-    position: relative;
-    max-width: 500px; /* バナーと同じ幅にする */
-    margin: 0 auto;   /* 中央寄せ */
-    line-height: 0;
+    position: relative !important;
+    line-height: 0 !important;
+    width: 100% !important;
   }
 
+  /* 4. バナー内の文字を中央に小さく配置 */
   .banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.1rem !important; /* デカすぎたのを修正 */
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    white-space: nowrap;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 1.2rem !important; /* indexのサイズ感 */
+    color: #fff !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8) !important;
+    white-space: nowrap !important;
   }
 
-  /* 3. ページ見出し（privacyの文字など）を適正サイズに */
+  /* 5. 巨大化した「Privacy」等の見出しを標準サイズに叩き落とす */
   h1 {
-    font-size: 1.2rem !important; /* デカくなった文字を小さく */
-    margin-top: 15px !important;
-    text-align: center;
+    font-size: 1.3rem !important;
+    text-align: center !important;
+    margin: 20px 0 !important;
   }
 
   h2 {
-    font-size: 1.0rem !important;
-    margin-top: 20px;
-  }
-
-  /* 4. 全体の横幅をindexに合わせる */
-  .page {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 15px;
+    font-size: 1.1rem !important;
+    margin: 15px 0 10px !important;
   }
 </style>
 </head>
