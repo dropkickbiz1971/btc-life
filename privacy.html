@@ -6,25 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* 1. ヘッダー全体の余白をindexに合わせる */
-  .header {
-    text-align: center;
-    padding-bottom: 20px;
-  }
-
-  /* 2. バナーのサイズをindexと完全に一致させる */
+  /* 1. バナーをindexと同じ「控えめなサイズ」に強制固定 */
   .header-banner {
     width: 100% !important;
-    max-width: 100% !important; /* 親要素の幅に従わせる */
+    max-width: 500px !important; /* indexの見た目に合わせ、幅を制限 */
     height: auto !important;
-    display: block;
+    margin: 0 auto !important;
+    display: block !important;
   }
 
-  /* 3. 文字を画像の中央に重ねる設定（indexの再現） */
+  /* 2. 重なる文字のサイズを修正 */
   .banner-container {
     position: relative;
-    display: inline-block; /* 画像の幅にコンテナを合わせる */
-    width: 100%;
+    max-width: 500px; /* バナーと同じ幅にする */
+    margin: 0 auto;   /* 中央寄せ */
     line-height: 0;
   }
 
@@ -33,19 +28,30 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    font-size: 1.1rem !important; /* デカすぎたのを修正 */
     color: #fff;
     font-weight: bold;
-    font-size: 1.5rem; /* indexのサイズ感に調整 */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    margin: 0;
-    pointer-events: none;
+    white-space: nowrap;
   }
 
-  /* 4. 「このサイトについて」などの見出しの余白 */
+  /* 3. ページ見出し（privacyの文字など）を適正サイズに */
   h1 {
+    font-size: 1.2rem !important; /* デカくなった文字を小さく */
+    margin-top: 15px !important;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.0rem !important;
     margin-top: 20px;
-    font-size: 1.6rem;
+  }
+
+  /* 4. 全体の横幅をindexに合わせる */
+  .page {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 15px;
   }
 </style>
 </head>
