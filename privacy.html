@@ -6,21 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* バナーの巨大化を抑え、中央配置にする */
-  .header-banner {
-    width: 100% !important;
-    max-width: 800px !important; 
-    height: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
+  /* 1. ヘッダー全体の余白をindexに合わせる */
+  .header {
+    text-align: center;
+    padding-bottom: 20px;
   }
 
-  /* バナー内の文字を画像の上に重ねる */
+  /* 2. バナーのサイズをindexと完全に一致させる */
+  .header-banner {
+    width: 100% !important;
+    max-width: 100% !important; /* 親要素の幅に従わせる */
+    height: auto !important;
+    display: block;
+  }
+
+  /* 3. 文字を画像の中央に重ねる設定（indexの再現） */
   .banner-container {
     position: relative;
+    display: inline-block; /* 画像の幅にコンテナを合わせる */
     width: 100%;
     line-height: 0;
-    background-color: #f4f4f4; /* 読み込み前の背景色 */
   }
 
   .banner-text {
@@ -28,36 +33,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
     color: #fff;
     font-weight: bold;
-    font-size: 1.2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    width: 100%;
-    text-align: center;
-    pointer-events: none; /* 文字がリンクの邪魔をしないように */
+    font-size: 1.5rem; /* indexのサイズ感に調整 */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    margin: 0;
+    pointer-events: none;
   }
 
-  /* 見出し（H1, H2）の調整 */
-  .header h1 {
-    font-size: 1.4rem;
-    margin: 20px 0 10px;
-    text-align: center;
-    color: #333;
-  }
-
-  .page h2 {
-    font-size: 1.1rem;
-    border-left: 5px solid #ffcc00; /* BTCカラーのアクセント */
-    padding-left: 10px;
-    margin: 30px 0 10px;
-  }
-
-  /* 文章の読みやすさ向上 */
-  .page {
-    padding: 10px 20px 40px;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.7;
+  /* 4. 「このサイトについて」などの見出しの余白 */
+  h1 {
+    margin-top: 20px;
+    font-size: 1.6rem;
   }
 </style>
 </head>
