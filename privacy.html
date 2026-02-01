@@ -6,23 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <style>
-  /* 1. バナー：黒枠を消し、indexと同じ160pxで固定 */
+  /* 1. バナー：黒い隙間を絶対に作らず、indexと同じ160pxにする */
   .header {
     position: relative !important;
     width: 100% !important;
     height: 160px !important;
-    overflow: hidden !important;
+    background: url('img/banner.png') center/cover no-repeat !important; /* 画像を背景として直接流し込む */
     margin: 0 !important;
     padding: 0 !important;
-    background: none !important; /* 黒枠の原因となる背景を消去 */
+    overflow: hidden !important;
   }
 
+  /* HTMLのimgタグ自体は非表示にして、背景で確実に見せる */
   .header-banner {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important; /* 中央で切り抜き */
-    display: block !important;
+    display: none !important;
   }
 
   .banner-text {
@@ -32,43 +29,42 @@
     bottom: 15px !important;
     text-align: center !important;
     width: 100% !important;
-    color: #fff !important;
+    color: #ffffff !important;
     font-size: 22px !important;
     font-weight: bold !important;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
-    z-index: 10 !important;
+    margin: 0 !important;
   }
 
-  /* 2. ボタン：スマホでも「絶対に」横に並べる */
+  /* 2. ボタン：スマホでも絶対に横並び、かつ崩さない */
   .links {
     display: flex !important;
-    flex-direction: row !important; /* 縦並びを禁止 */
     justify-content: center !important;
     align-items: center !important;
-    gap: 8px !important; /* 隙間を少し狭めてスマホでも収める */
-    margin-top: 30px !important;
+    gap: 10px !important;
+    margin: 30px auto !important;
     width: 100% !important;
+    max-width: 400px !important; /* ボタンが広がりすぎないように */
   }
 
   .btn {
-    flex: 1 !important; /* ボタンの幅を均等に */
-    max-width: 180px !important; /* 広がりすぎ防止 */
-    padding: 12px 5px !important; /* 横の余白を削って収める */
-    font-size: 13px !important; /* スマホで文字が溢れないサイズ */
+    flex: 1 !important;
     text-align: center !important;
+    padding: 10px 5px !important;
+    font-size: 12px !important; /* スマホで1行に収めるための最小サイズ */
     text-decoration: none !important;
     border-radius: 5px !important;
-    white-space: nowrap !important; /* 改行を禁止 */
-    display: block !important;
+    white-space: nowrap !important;
+    min-width: 0 !important; /* flex内の縮小を許可 */
   }
 
-  /* 3. 本文エリア */
+  /* 3. 本文の体裁 */
   .page {
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    padding: 20px 15px !important;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
   }
-  h1 { font-size: 1.3rem !important; text-align: center; margin: 20px 0; }
+  h1 { font-size: 1.4rem; text-align: center; margin: 20px 0; }
 </style>
 </head>
 <body>
